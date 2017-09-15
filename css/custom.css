@@ -1,0 +1,15 @@
+a, code {
+  color: #A57319;
+  background-color: #f7f6f4;
+}
+a:hover {
+  text-decoration: none;
+  color: #CFB53B;
+}
+body {
+  background-color: #f7f6f4;
+}
+.category {
+  font-style: italic;
+  margin-left: 10px;
+}

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -7,9 +8,11 @@
     <!-- font -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
     <title>Sun J Lee's Website</title>
+    <link rel="icon" href="favicon.ico">
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,74 +22,90 @@
     <![endif]-->
   </head>
   <body>
-  	<div class="head">
-	  	<div class="container-fluid">
-	    	<h1 class="text-center"> Hi, I'm <strong>Sun (David) J Lee</strong> </h1>
-	    	<h4 class="text-center">  <a href="mailto:dssd1001@berkeley.edu" style="color:#CFB53B"> Email me </a> or <a href="https://www.linkedin.com/in/dl1001" style="color:#CFB53B"> Connect with me </a> </h4>
-	    	<h4 class="text-center"> <a href="resume.pdf" style="color:#CFB53B">Resume </a> | <a href="designedR.pdf" style="color:#CFB53B"> Designed</a> </h4>
-	    </div>
-  	</div>
+
+    <div class="container-fluid">
+
+      <div class="head">
+  	  	<div class="container-fluid">
+  	    	<h1 class="text-center"> Hi, I'm <strong>Sun J Lee</strong> </h1>
+  	    	<h4 class="text-center">  <a href="mailto:dssd1001@berkeley.edu"> Email me </a> or <a href="https://www.linkedin.com/in/dl1001"> Connect with me </a> </h4>
+  	    	<h4 class="text-center"> <a href="resume.pdf">Resume </a> | <a href="designedR.pdf"> Designed</a> </h4>
+  	    </div>
+    	</div>
 
 
-  	<div class="container-fluid">
-  		<div class="col-md-4">
-  	      <h3 class="text-center"> Projects </h3>
+    	<div class="container-fluid">
+    		<div class="col-md-3">
+    	    <h3 class="text-center"> Projects </h3>
   	      <code><ul>
-  	      		<li>Built a Text Editor with UI functionality</li>
-  		   	    <li>Developed a backtester for stock trading scripts</li>
-  				<li>Made data scraping scripts for pulling company filings from SEC Edgar</li>
-  				<li>Constructed reinforcement learning demos for SAP's Hana Vora platform</li>
-  			</ul></code>
+  	      	<li>Built a chatbot using NLP<a href="https://ml.berkeley.edu" class="pull-right">[link]</a></li>
+  		   	  <li>Developed the ML@B website and its infrastructure <a href="https://ml.berkeley.edu" class="pull-right">[link]</a></li>
+  				  <li>Designed INFLUX: a minimalist, graph-based stream processing engine oriented towards machine learning applications <a href="https://github.com/noahgolmant/influx" class="pull-right">[link]</a></li>
+  			  </ul></code>
+    	  </div>
+
+  	    <div class="col-md-6">
+          <div class="academics">
+            <h3 class="text-center"> Academics </h3>
+            <p class="text-center">
+              Rising Sophomore @ UC Berkeley <br>
+              Pursuing: EECS, Business (Entrepreneurship)
+            </p>
+    	   		<div class="row">
+    		      <div class="col-md-6">
+                Courses I'm Taking (Fa'2017):<br>
+                <span class="category">EECS:</span>
+                <code><ul>
+  			      	  <li><strong>CS 61C</strong> - Great Ideas in Computer Architecture (Machine Structures)</li>
+                </ul></code>
+                <span class="category">Entrepreneurship:</span>
+  			      	<code><ul>
+                  <li><strong>IEOR 191</strong> - Technology Entrepreneurship</li>
+  			      	  <li><strong>IEOR 190B</strong> - Finance for Entrepreneurs</li>
+                  <li><strong>IEOR 190C</strong> - Collider Sprints</li>
+  			      	  <li><strong>IEOR 185</strong> - Challenge Lab</li>
+  			      	  <!-- <li><strong>CS 294-112</strong> - Deep Reinforcement Learning (Graduate Level)</li> -->
+  					      <!-- <li><strong>CS 294-131</strong> - Special Topics in Deep Learning (Graduate Level) </li> -->
+      					  <!-- <li><strong>EE 127</strong> - Optimization Models</li> -->
+      					  <!-- <li><strong>Stat 135</strong> - Concepts of Statistisc</li> -->
+      					  <!-- <li><strong>Stat 150</strong> - Stochastic Processes</li> -->
+  					    </ul></code>
+    				  </div>
+      				<div class="col-md-6">
+                Courses I've Taken:
+      			    <code><ul>
+      					  <li><strong>CS 61A</strong> - Structures and Interpretations of Computer Programs</li>
+      					  <li><strong>CS 61B</strong> - Data Structures and Algorithms</li>
+      					  <li><strong>CS 70</strong> - Discrete Math</li>
+                  <!-- <li><strong>CS 170</strong> - Algorithms</li> -->
+      					  <!-- <li><strong>CS 188</strong> - Artificial Intelligence</li> -->
+      					  <!-- <li><strong>CS 189</strong> - Machine Learning</li> -->
+      					  <!-- <li><strong>Stat 133</strong> - Concepts of Computing with Data</li> -->
+      					  <!-- <li><strong>Stat 134</strong> - Probability</li> -->
+      					  <!-- <li><strong>Data 8 + Stat 88</strong> - Intro to Data Science</li> -->
+      					  <li><strong>Math 53</strong> - Multivariable Calculus</li>
+      					  <li><strong>Math 54</strong> - Linear Algebra and Differential Equations</li>
+      					  <li><strong>EE 16A</strong> - Designing Information Devices and Systems</li>
+      					  <li><strong>EE 16B</strong> - Designing Information Devices and Systems</li>
+      					</ul></code>
+      				</div>
+      			</div>
+          </div>
+
+
   	    </div>
 
-  	    <div class="col-md-4">
-  	    	<h3 class="text-center"> Academics </h3>
-  	      	Rising Junior @ UC Berkeley
-  	   		<br> Double Majoring: Computer Science, Statistics
-  	   		<br>
-  	   		<div class="row">
-  		      	<div class="col-md-6">
-  			      	Courses I'm Taking (Fa2017):
-  			      	<code><ul>
-  			      	  <li><strong>CS 294-112</strong> - Deep Reinforcement Learning (Graduate Level)</li>
-  					  <li><strong>CS 294-131</strong> - Special Topics in Deep Learning (Graduate Level) </li>
-  					  <li><strong>EE 127</strong> - Optimization Models</li>
-  					  <li><strong>Stat 135</strong> - Concepts of Statistisc</li>
-  					  <li><strong>Stat 150</strong> - Stochastic Processes</li>
-  					</ul></code>
-  				</div>
-  				<div class="col-md-6">
-  			      	Courses I've Taken:
-  			      	<code><ul>
-  					  <li><strong>CS 61AS</strong> - Structures and Interpretations of Computer Programs</li>
-  					  <li><strong>CS 61B</strong> - Data Structures and Algorithms</li>
-  					  <li><strong>CS 70</strong> - Discrete Math and
-  					  </li><li><strong>CS 170</strong> - Algorithms</li>
-  					  <li><strong>CS 188</strong> - Artificial Intelligence</li>
-  					  <li><strong>CS 189</strong> - Machine Learning</li>Probability
-  					  <li><strong>Stat 133</strong> - Concepts of Computing with Data</li>
-  					  <li><strong>Stat 134</strong> - Probability</li>
-  					  <li><strong>Data 8 + Stat 88</strong> - Intro to Data Science</li>
-  					  <li><strong>Math 53</strong> - Multivariable Calculus</li>
-  					  <li><strong>Math 54</strong> - Linear Algebra and Differential Equations</li>
-  					  <li><strong>EE 16A</strong> - Designing Information Devices and Systems</li>
-  					  <li><strong>IEOR 221</strong> - Financial Engineering (Graduate Level)</li>
-  					</ul></code>
-  				</div>
-  			</div>
-
-  	    </div>
-
-  	    <div class="col-md-4">
+  	    <div class="col-md-3">
   	      <h3 class="text-center"> Other </h3>
-  	      <code><ul>
-  			<li>Deep learning and reinforcement learning are pretty cool. I'm reading as much on that as possible!</li>
-  			<li> I love music. I play the guitar, piano, drums, bass, and violin. I also produce some electronic music from time to time. </li>
-  			<li> Huge basketball fan. I love the Golden State Warriors and play recreationally whenever possible. </li>
-
-  		  </ul></code>
+    	      <code><ul>
+        			<li>Machine learning is pretty dope. I'm reading as much on this as possible!</li>
+        			<li> I love traveling, landscape photography, and surfing. My goal is to visit and surf every ocean in the world. </li>
+        			<li> Huge soccer fan. I love the Tottenham Hotspurs and play recreationally whenever possible. </li>
+            </ul></code>
   	    </div>
-  	</div>
+    	</div>
+
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
