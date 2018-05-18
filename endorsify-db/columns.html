@@ -1,0 +1,7574 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>endorsify Database</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.5 -->
+  <link rel="stylesheet" href="bower/admin-lte/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="bower/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="bower/ionicons/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+  <!-- Code Mirror -->
+  <link rel="stylesheet" href="bower/codemirror/codemirror.css">
+  <!-- Fonts -->
+  <link href='fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+  <link href='fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="bower/admin-lte/dist/css/AdminLTE.min.css">
+  <!-- Salvattore -->
+  <link rel="stylesheet" href="bower/salvattore/salvattore.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="bower/admin-lte/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="schemaSpy.css">
+  
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="bower/html5shiv/html5shiv.min.js"></script>
+  <script src="bower/respond/respond.min.js"></script>
+  <![endif]-->
+</head>
+<!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+<body class="hold-transition skin-blue layout-top-nav">
+<div class="wrapper">
+  <header class="main-header">
+    <nav class="navbar navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand"><b>endorsify</b> Database</a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Tables <span class="sr-only">(current)</span></a></li>            
+			<!--<li><a href="components.html" title="List of system components">Components</a></li>-->
+			<li><a href="columns.html" title="All of the columns in the schema">Columns</a></li>
+			<li><a href="constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+			<li><a href="relationships.html" title="Diagram of table relationships">Relationships</a></li>
+			<li><a href="orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>				
+			<li><a href="anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+        <!-- Navbar Right Menu -->
+
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+  </header>
+  <!-- Main content -->
+  <!-- Full Width Column -->
+  <div class="content-wrapper">
+          <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>Columns</h1>
+      </section>
+      <!-- Main content -->
+      <section class="content">
+		<div class="box box-primary">
+			<div class="box-header with-border">
+			  <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+              <h3 class="box-title">Columns</h3>
+            </div>	
+            <div class="box-body">
+				<table id="column_table" class="table table-bordered table-striped dataTable" role="grid">
+				<thead align='left'>
+				<tr>
+				  <th>Table</th>
+				  <th>Type</th>
+				  <th>Column</th>				  
+				  <th>Type</th>
+				  <th>Size</th>
+				  <th title='Are nulls allowed?'>Nulls</th>
+				  <th title='Is column automatically updated?'>Auto</th>
+				  <th title='Default value'>Default</th>
+				  <th title='Comments' class="toggle"><span>Comments</span></th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+				 <td>schema_auto_increment_columns</td>
+				 <td>View</td>
+				 <td>table_name</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>campaign</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>content_request</td>
+				 <td>Table</td>
+				 <td>created_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>rows_inserted</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>bio</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>campaign</td>
+				 <td>Table</td>
+				 <td>content_posted</td>
+				 <td>VARCHAR</td>
+				 <td>150</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>location</td>
+				 <td>VARCHAR</td>
+				 <td>100</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>plans</td>
+				 <td>Table</td>
+				 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>slug</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_runtimes_in_95th_percentile</td>
+				 <td>View</td>
+				 <td>avg_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>website</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_runtimes_in_95th_percentile</td>
+				 <td>View</td>
+				 <td>err_count</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>source</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics</td>
+				 <td>View</td>
+				 <td>fetch_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>subscriptions</td>
+				 <td>Table</td>
+				 <td>braintree_plan</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>migrations</td>
+				 <td>Table</td>
+				 <td>migration</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>wait_age_secs</td>
+				 <td>BIGINT</td>
+				 <td>19</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>rows_fetched</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_statement_type</td>
+				 <td>View</td>
+				 <td>total</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>brands</td>
+				 <td>Table</td>
+				 <td>name</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_by_thread_by_latency</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>industries</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_errors_or_warnings</td>
+				 <td>View</td>
+				 <td>digest</td>
+				 <td>VARCHAR</td>
+				 <td>32</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_buffer_stats_by_table</td>
+				 <td>View</td>
+				 <td>pages_hashed</td>
+				 <td>BIGINT</td>
+				 <td>19</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>wait_classes_global_by_avg_latency</td>
+				 <td>View</td>
+				 <td>total</td>
+				 <td>DECIMAL</td>
+				 <td>42</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>content_creators</td>
+				 <td>Table</td>
+				 <td>price</td>
+				 <td>VARCHAR</td>
+				 <td>150</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>plans</td>
+				 <td>Table</td>
+				 <td>created_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_bytes</td>
+				 <td>View</td>
+				 <td>max_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>waiting_lock_mode</td>
+				 <td>VARCHAR</td>
+				 <td>32</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_count</td>
+				 <td>Table</td>
+				 <td>avg_comment</td>
+				 <td>DOUBLE</td>
+				 <td>22</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>tmp_tables</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_file_by_latency</td>
+				 <td>View</td>
+				 <td>write_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>wait_classes_global_by_avg_latency</td>
+				 <td>View</td>
+				 <td>event_class</td>
+				 <td>VARCHAR</td>
+				 <td>128</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_sorting</td>
+				 <td>View</td>
+				 <td>sort_using_range</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_full_table_scans</td>
+				 <td>View</td>
+				 <td>no_index_used_count</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>time</td>
+				 <td>TIME</td>
+				 <td>16</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>indicative_fee</td>
+				 <td>DOUBLE</td>
+				 <td>22</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>object</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>sql_kill_blocking_connection</td>
+				 <td>VARCHAR</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>wait_classes_global_by_latency</td>
+				 <td>View</td>
+				 <td>total</td>
+				 <td>DECIMAL</td>
+				 <td>42</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>waits_by_user_by_latency</td>
+				 <td>View</td>
+				 <td>max_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>subscriptions</td>
+				 <td>Table</td>
+				 <td>trial_ends_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>waits_by_user_by_latency</td>
+				 <td>View</td>
+				 <td>user</td>
+				 <td>VARCHAR</td>
+				 <td>16</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>stripe_charges</td>
+				 <td>Table</td>
+				 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>brand_id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>comments_count</td>
+				 <td>VARCHAR</td>
+				 <td>100</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>filter</td>
+				 <td>VARCHAR</td>
+				 <td>50</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>wait_classes_global_by_avg_latency</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>table_schema</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>industries</td>
+				 <td>Table</td>
+				 <td>status</td>
+				 <td>INT</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>waits_global_by_latency</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>sql_kill_blocking_query</td>
+				 <td>VARCHAR</td>
+				 <td>32</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>video</td>
+				 <td>VARCHAR</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_statement_latency</td>
+				 <td>View</td>
+				 <td>total</td>
+				 <td>DECIMAL</td>
+				 <td>42</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_statement_latency</td>
+				 <td>View</td>
+				 <td>rows_sent</td>
+				 <td>DECIMAL</td>
+				 <td>42</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_full_table_scans</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>contact_form</td>
+				 <td>Table</td>
+				 <td>phone_number</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>campaign</td>
+				 <td>Table</td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>user_id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>digest</td>
+				 <td>VARCHAR</td>
+				 <td>32</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>rows_examined_avg</td>
+				 <td>DECIMAL</td>
+				 <td>21</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary</td>
+				 <td>View</td>
+				 <td>unique_hosts</td>
+				 <td>BIGINT</td>
+				 <td>19</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>current_statement</td>
+				 <td>LONGTEXT</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>ps_check_lost_instrumentation</td>
+				 <td>View</td>
+				 <td>variable_name</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>wait_classes_global_by_latency</td>
+				 <td>View</td>
+				 <td>event_class</td>
+				 <td>VARCHAR</td>
+				 <td>128</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_statement_type</td>
+				 <td>View</td>
+				 <td>rows_affected</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>DashboardCamp</td>
+				 <td>Table</td>
+				 <td>updated_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>conn_id</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>content_creators</td>
+				 <td>Table</td>
+				 <td>updated_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_index_statistics</td>
+				 <td>View</td>
+				 <td>rows_selected</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>current_statement</td>
+				 <td>LONGTEXT</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>statement_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>blocking_trx_rows_locked</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_statement_latency</td>
+				 <td>View</td>
+				 <td>host</td>
+				 <td>VARCHAR</td>
+				 <td>60</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>brands</td>
+				 <td>Table</td>
+				 <td>type</td>
+				 <td>enum(&#39;pro&#39;, &#39;starter&#39;)</td>
+				 <td>7</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_statement_type</td>
+				 <td>View</td>
+				 <td>statement</td>
+				 <td>VARCHAR</td>
+				 <td>128</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_count</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary</td>
+				 <td>View</td>
+				 <td>total_connections</td>
+				 <td>DECIMAL</td>
+				 <td>41</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>subscriptions</td>
+				 <td>Table</td>
+				 <td>quantity</td>
+				 <td>INT</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_auto_increment_columns</td>
+				 <td>View</td>
+				 <td>column_name</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>password</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>waits_global_by_latency</td>
+				 <td>View</td>
+				 <td>events</td>
+				 <td>VARCHAR</td>
+				 <td>128</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_temp_tables</td>
+				 <td>View</td>
+				 <td>memory_tmp_tables</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>vat</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics</td>
+				 <td>View</td>
+				 <td>delete_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>plans</td>
+				 <td>Table</td>
+				 <td>description</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_buffer_stats_by_schema</td>
+				 <td>View</td>
+				 <td>pages</td>
+				 <td>BIGINT</td>
+				 <td>19</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>avatar</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>stripe_charges</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_temp_tables</td>
+				 <td>View</td>
+				 <td>exec_count</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_buffer_stats_by_schema</td>
+				 <td>View</td>
+				 <td>data</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>campaign</td>
+				 <td>Table</td>
+				 <td>status</td>
+				 <td>enum(&#39;active&#39;, &#39;archived&#39;)</td>
+				 <td>8</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_statement_latency</td>
+				 <td>View</td>
+				 <td>full_scans</td>
+				 <td>DECIMAL</td>
+				 <td>43</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>likes_count</td>
+				 <td>VARCHAR</td>
+				 <td>100</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_statement_latency</td>
+				 <td>View</td>
+				 <td>full_scans</td>
+				 <td>DECIMAL</td>
+				 <td>43</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>io_write_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_runtimes_in_95th_percentile</td>
+				 <td>View</td>
+				 <td>rows_sent</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>text</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_by_thread_by_latency</td>
+				 <td>View</td>
+				 <td>total</td>
+				 <td>DECIMAL</td>
+				 <td>42</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>statement_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_redundant_indexes</td>
+				 <td>View</td>
+				 <td>table_schema</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>waits_by_user_by_latency</td>
+				 <td>View</td>
+				 <td>avg_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_bytes</td>
+				 <td>View</td>
+				 <td>avg_read</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>io_misc_requests</td>
+				 <td>DECIMAL</td>
+				 <td>42</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>dob</td>
+				 <td>DATE</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>plan</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_full_table_scans</td>
+				 <td>View</td>
+				 <td>no_index_used_pct</td>
+				 <td>DECIMAL</td>
+				 <td>24</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics</td>
+				 <td>View</td>
+				 <td>table_schema</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_auto_increment_columns</td>
+				 <td>View</td>
+				 <td>is_unsigned</td>
+				 <td>INT</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_full_table_scans</td>
+				 <td>View</td>
+				 <td>first_seen</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0000-00-00 00:00:00</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics</td>
+				 <td>View</td>
+				 <td>table_name</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>brands</td>
+				 <td>Table</td>
+				 <td>created_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>user_has_liked</td>
+				 <td>VARCHAR</td>
+				 <td>50</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>content_creators</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_buffer_stats_by_table</td>
+				 <td>View</td>
+				 <td>rows_cached</td>
+				 <td>DECIMAL</td>
+				 <td>44</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary</td>
+				 <td>View</td>
+				 <td>statement_avg_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>access_token</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_statement_type</td>
+				 <td>View</td>
+				 <td>lock_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>remember_token</td>
+				 <td>VARCHAR</td>
+				 <td>100</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>pusher_messages</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>paypal_email</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>time</td>
+				 <td>BIGINT</td>
+				 <td>19</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>contact_form</td>
+				 <td>Table</td>
+				 <td>message</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>tmp_disk_tables</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_sorting</td>
+				 <td>View</td>
+				 <td>rows_sorted</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>pusher_channels</td>
+				 <td>Table</td>
+				 <td>created_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>brands</td>
+				 <td>Table</td>
+				 <td>document</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_index_statistics</td>
+				 <td>View</td>
+				 <td>rows_deleted</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>rows_sent_avg</td>
+				 <td>DECIMAL</td>
+				 <td>21</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>full_scan</td>
+				 <td>VARCHAR</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_statement_type</td>
+				 <td>View</td>
+				 <td>lock_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_statement_type</td>
+				 <td>View</td>
+				 <td>user</td>
+				 <td>VARCHAR</td>
+				 <td>16</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_errors_or_warnings</td>
+				 <td>View</td>
+				 <td>warning_pct</td>
+				 <td>DECIMAL</td>
+				 <td>27</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0.0000</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>conn_id</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_full_table_scans</td>
+				 <td>View</td>
+				 <td>digest</td>
+				 <td>VARCHAR</td>
+				 <td>32</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>waiting_trx_id</td>
+				 <td>VARCHAR</td>
+				 <td>18</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>db</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_statement_latency</td>
+				 <td>View</td>
+				 <td>rows_examined</td>
+				 <td>DECIMAL</td>
+				 <td>42</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary</td>
+				 <td>View</td>
+				 <td>table_scans</td>
+				 <td>DECIMAL</td>
+				 <td>65</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>content_creators</td>
+				 <td>Table</td>
+				 <td>isHired</td>
+				 <td>BIT</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_runtimes_in_95th_percentile</td>
+				 <td>View</td>
+				 <td>warn_count</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>subscriptions</td>
+				 <td>Table</td>
+				 <td>created_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_statement_latency</td>
+				 <td>View</td>
+				 <td>rows_sent</td>
+				 <td>DECIMAL</td>
+				 <td>42</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_file_io</td>
+				 <td>View</td>
+				 <td>user</td>
+				 <td>VARCHAR</td>
+				 <td>16</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_file_io</td>
+				 <td>View</td>
+				 <td>io_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>waiting_pid</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>wait_classes_global_by_avg_latency</td>
+				 <td>View</td>
+				 <td>min_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>location</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>last_statement_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>industry</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_bytes</td>
+				 <td>View</td>
+				 <td>count_read</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_latency</td>
+				 <td>View</td>
+				 <td>total</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>tmp_tables</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_index_statistics</td>
+				 <td>View</td>
+				 <td>table_schema</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_runtimes_in_95th_percentile</td>
+				 <td>View</td>
+				 <td>digest</td>
+				 <td>VARCHAR</td>
+				 <td>32</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>cron_entry</td>
+				 <td>Table</td>
+				 <td>pagination_url</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>email</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>pusher_channels</td>
+				 <td>Table</td>
+				 <td>name</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_statement_latency</td>
+				 <td>View</td>
+				 <td>rows_affected</td>
+				 <td>DECIMAL</td>
+				 <td>42</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>subscriptions</td>
+				 <td>Table</td>
+				 <td>ends_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_by_thread_by_latency</td>
+				 <td>View</td>
+				 <td>user</td>
+				 <td>VARCHAR</td>
+				 <td>128</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>link</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>latest_file_io</td>
+				 <td>View</td>
+				 <td>requested</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>waits_by_user_by_latency</td>
+				 <td>View</td>
+				 <td>total</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>command</td>
+				 <td>VARCHAR</td>
+				 <td>16</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>plans</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>subscriptions</td>
+				 <td>Table</td>
+				 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>user_id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics</td>
+				 <td>View</td>
+				 <td>rows_updated</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>cpm</td>
+				 <td>DOUBLE</td>
+				 <td>22</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>campaign</td>
+				 <td>Table</td>
+				 <td>likes</td>
+				 <td>VARCHAR</td>
+				 <td>150</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_auto_increment_columns</td>
+				 <td>View</td>
+				 <td>data_type</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_redundant_indexes</td>
+				 <td>View</td>
+				 <td>subpart_exists</td>
+				 <td>INT</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>pusher_messages</td>
+				 <td>Table</td>
+				 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>user_id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_file_by_bytes</td>
+				 <td>View</td>
+				 <td>write_pct</td>
+				 <td>DECIMAL</td>
+				 <td>26</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0.00</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_by_thread_by_latency</td>
+				 <td>View</td>
+				 <td>max_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_latency</td>
+				 <td>View</td>
+				 <td>avg_read</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_bytes</td>
+				 <td>View</td>
+				 <td>total_requested</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>avg_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_auto_increment_columns</td>
+				 <td>View</td>
+				 <td>is_signed</td>
+				 <td>INT</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_statement_type</td>
+				 <td>View</td>
+				 <td>full_scans</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>first_name</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_object_overview</td>
+				 <td>View</td>
+				 <td>db</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>brands</td>
+				 <td>Table</td>
+				 <td>twitter</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>video_low_resolution</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>strategy_detail</td>
+				 <td>Table</td>
+				 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>campaign_id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_full_table_scans</td>
+				 <td>View</td>
+				 <td>db</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>created_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_count</td>
+				 <td>Table</td>
+				 <td>avg_likes</td>
+				 <td>DOUBLE</td>
+				 <td>22</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>brand_image</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>waits_global_by_latency</td>
+				 <td>View</td>
+				 <td>max_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>day</td>
+				 <td>VARCHAR</td>
+				 <td>80</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>content_request</td>
+				 <td>Table</td>
+				 <td>status</td>
+				 <td>enum(&#39;created&#39;, &#39;viewed&#39;, &#39;processed&#39;, &#39;completed&#39;)</td>
+				 <td>9</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>rows_sent</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_statement_type</td>
+				 <td>View</td>
+				 <td>rows_examined</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>updated_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>brands</td>
+				 <td>Table</td>
+				 <td>profile_image</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_tables_with_full_table_scans</td>
+				 <td>View</td>
+				 <td>rows_full_scanned</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_stages</td>
+				 <td>View</td>
+				 <td>host</td>
+				 <td>VARCHAR</td>
+				 <td>60</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>innodb_buffer_free</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>first_name</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_auto_increment_columns</td>
+				 <td>View</td>
+				 <td>auto_increment_ratio</td>
+				 <td>DECIMAL UNSIGNED</td>
+				 <td>25</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_sorting</td>
+				 <td>View</td>
+				 <td>first_seen</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0000-00-00 00:00:00</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_bytes</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>created_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_file_by_bytes</td>
+				 <td>View</td>
+				 <td>count_write</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_count</td>
+				 <td>Table</td>
+				 <td>date</td>
+				 <td>DATE</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_auto_increment_columns</td>
+				 <td>View</td>
+				 <td>max_value</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_sorting</td>
+				 <td>View</td>
+				 <td>last_seen</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0000-00-00 00:00:00</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_statement_latency</td>
+				 <td>View</td>
+				 <td>lock_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_file_by_latency</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>user</td>
+				 <td>VARCHAR</td>
+				 <td>128</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_latency</td>
+				 <td>View</td>
+				 <td>avg_written</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_redundant_indexes</td>
+				 <td>View</td>
+				 <td>redundant_index_non_unique</td>
+				 <td>BIGINT</td>
+				 <td>19</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_statement_type</td>
+				 <td>View</td>
+				 <td>rows_sent</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>last_seen</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0000-00-00 00:00:00</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_file_io_type</td>
+				 <td>View</td>
+				 <td>max_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>innodb_buffer_pages_hashed</td>
+				 <td>BIGINT</td>
+				 <td>19</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_file_io</td>
+				 <td>View</td>
+				 <td>ios</td>
+				 <td>DECIMAL</td>
+				 <td>42</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>last_name</td>
+				 <td>VARCHAR</td>
+				 <td>150</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>phone_number</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary</td>
+				 <td>View</td>
+				 <td>file_io_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_latency</td>
+				 <td>View</td>
+				 <td>misc_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_statement_type</td>
+				 <td>View</td>
+				 <td>full_scans</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_by_thread_by_latency</td>
+				 <td>View</td>
+				 <td>processlist_id</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>metrics</td>
+				 <td>View</td>
+				 <td>Enabled</td>
+				 <td>VARCHAR</td>
+				 <td>3</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>rows_affected_avg</td>
+				 <td>DECIMAL</td>
+				 <td>21</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_temp_tables</td>
+				 <td>View</td>
+				 <td>tmp_tables_to_disk_pct</td>
+				 <td>DECIMAL</td>
+				 <td>24</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_statement_latency</td>
+				 <td>View</td>
+				 <td>rows_affected</td>
+				 <td>DECIMAL</td>
+				 <td>42</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>brands</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>blocking_trx_rows_modified</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>wait_classes_global_by_avg_latency</td>
+				 <td>View</td>
+				 <td>max_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>innodb_buffer_rows_cached</td>
+				 <td>DECIMAL</td>
+				 <td>44</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>state</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_sorting</td>
+				 <td>View</td>
+				 <td>exec_count</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>max_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_latency</td>
+				 <td>View</td>
+				 <td>count_read</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_buffer_stats_by_schema</td>
+				 <td>View</td>
+				 <td>allocated</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>locked_type</td>
+				 <td>VARCHAR</td>
+				 <td>32</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>brands</td>
+				 <td>Table</td>
+				 <td>description</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>metrics</td>
+				 <td>View</td>
+				 <td>Variable_name</td>
+				 <td>VARCHAR</td>
+				 <td>193</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>type</td>
+				 <td>VARCHAR</td>
+				 <td>15</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>strategy_detail</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_latency</td>
+				 <td>View</td>
+				 <td>read_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_temp_tables</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>waiting_trx_started</td>
+				 <td>DATETIME</td>
+				 <td>26</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0000-00-00 00:00:00</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>table_name</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>age</td>
+				 <td>INT</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>cron_entry</td>
+				 <td>Table</td>
+				 <td>status</td>
+				 <td>enum(&#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;)</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>subscriptions</td>
+				 <td>Table</td>
+				 <td>updated_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>content_creators</td>
+				 <td>Table</td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>user_id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_count</td>
+				 <td>Table</td>
+				 <td>updated_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>brands</td>
+				 <td>Table</td>
+				 <td>website</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_count</td>
+				 <td>Table</td>
+				 <td>created_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>warn_count</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>campaign</td>
+				 <td>Table</td>
+				 <td>name</td>
+				 <td>VARCHAR</td>
+				 <td>150</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>version</td>
+				 <td>View</td>
+				 <td>sys_version</td>
+				 <td>VARCHAR</td>
+				 <td>5</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>gender</td>
+				 <td>VARCHAR</td>
+				 <td>50</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>content_request</td>
+				 <td>Table</td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>user_id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>status</td>
+				 <td>enum(&#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;6&#39;)</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>access_revoked</td>
+				 <td>BIT</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>pusher_channels</td>
+				 <td>Table</td>
+				 <td>updated_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_bytes</td>
+				 <td>View</td>
+				 <td>count_write</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_count</td>
+				 <td>Table</td>
+				 <td>followed_by</td>
+				 <td>INT</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_statement_type</td>
+				 <td>View</td>
+				 <td>statement</td>
+				 <td>VARCHAR</td>
+				 <td>128</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_buffer_stats_by_table</td>
+				 <td>View</td>
+				 <td>data</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>metrics</td>
+				 <td>View</td>
+				 <td>Type</td>
+				 <td>VARCHAR</td>
+				 <td>210</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_errors_or_warnings</td>
+				 <td>View</td>
+				 <td>warnings</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_index_statistics</td>
+				 <td>View</td>
+				 <td>rows_updated</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_buffer_stats_by_table</td>
+				 <td>View</td>
+				 <td>pages_old</td>
+				 <td>BIGINT</td>
+				 <td>19</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>blocking_trx_id</td>
+				 <td>VARCHAR</td>
+				 <td>18</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>insert_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_file_io</td>
+				 <td>View</td>
+				 <td>ios</td>
+				 <td>DECIMAL</td>
+				 <td>42</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_statement_latency</td>
+				 <td>View</td>
+				 <td>max_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_statement_type</td>
+				 <td>View</td>
+				 <td>rows_examined</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>day</td>
+				 <td>VARCHAR</td>
+				 <td>50</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_latency</td>
+				 <td>View</td>
+				 <td>total_read</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>strategy_detail</td>
+				 <td>Table</td>
+				 <td>cpe</td>
+				 <td>DOUBLE</td>
+				 <td>8</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>contact_form</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>contact_form</td>
+				 <td>Table</td>
+				 <td>location</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_unused_indexes</td>
+				 <td>View</td>
+				 <td>index_name</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>avg_likes</td>
+				 <td>DOUBLE</td>
+				 <td>22</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>bio</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>pusher_channels</td>
+				 <td>Table</td>
+				 <td>last_active</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0000-00-00 00:00:00</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>social_id</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_buffer_stats_by_table</td>
+				 <td>View</td>
+				 <td>object_name</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_file_io_type</td>
+				 <td>View</td>
+				 <td>total</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_statement_type</td>
+				 <td>View</td>
+				 <td>host</td>
+				 <td>VARCHAR</td>
+				 <td>60</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>pusher_messages</td>
+				 <td>Table</td>
+				 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>channel_id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>stripe_charges</td>
+				 <td>Table</td>
+				 <td>in_escrow</td>
+				 <td>BIT</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>1</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>pusher_messages</td>
+				 <td>Table</td>
+				 <td>original_file_name</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_errors_or_warnings</td>
+				 <td>View</td>
+				 <td>first_seen</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0000-00-00 00:00:00</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>io_misc_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_file_io_type</td>
+				 <td>View</td>
+				 <td>user</td>
+				 <td>VARCHAR</td>
+				 <td>16</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_sorting</td>
+				 <td>View</td>
+				 <td>sort_merge_passes</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>innodb_buffer_pages</td>
+				 <td>BIGINT</td>
+				 <td>19</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_auto_increment_columns</td>
+				 <td>View</td>
+				 <td>auto_increment</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_tables_with_full_table_scans</td>
+				 <td>View</td>
+				 <td>object_name</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>content_request</td>
+				 <td>Table</td>
+				 <td>updated_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>dob</td>
+				 <td>DATE</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>gif</td>
+				 <td>VARCHAR</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>sort_merge_passes</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_latency</td>
+				 <td>View</td>
+				 <td>count_write</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>type</td>
+				 <td>enum(&#39;admin&#39;, &#39;influencer&#39;, &#39;brand&#39;, &#39;sub-admin&#39;)</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>campaign</td>
+				 <td>Table</td>
+				 <td>gender</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_temp_tables</td>
+				 <td>View</td>
+				 <td>db</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>last_statement_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_full_table_scans</td>
+				 <td>View</td>
+				 <td>rows_sent</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_errors_or_warnings</td>
+				 <td>View</td>
+				 <td>db</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>migrations</td>
+				 <td>Table</td>
+				 <td>batch</td>
+				 <td>INT</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>stripe_charges</td>
+				 <td>Table</td>
+				 <td>updated_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>status</td>
+				 <td>BIT</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_file_by_bytes</td>
+				 <td>View</td>
+				 <td>avg_write</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_redundant_indexes</td>
+				 <td>View</td>
+				 <td>redundant_index_columns</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>rows_deleted</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>waits_by_user_by_latency</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary</td>
+				 <td>View</td>
+				 <td>file_io_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>thd_id</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>ps_check_lost_instrumentation</td>
+				 <td>View</td>
+				 <td>variable_value</td>
+				 <td>VARCHAR</td>
+				 <td>1024</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>strategy_detail</td>
+				 <td>Table</td>
+				 <td>budget</td>
+				 <td>DOUBLE</td>
+				 <td>8</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_index_statistics</td>
+				 <td>View</td>
+				 <td>rows_inserted</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_sorting</td>
+				 <td>View</td>
+				 <td>sorts_using_scans</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_runtimes_in_95th_percentile</td>
+				 <td>View</td>
+				 <td>max_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>image</td>
+				 <td>VARCHAR</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>updated_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary</td>
+				 <td>View</td>
+				 <td>table_scans</td>
+				 <td>DECIMAL</td>
+				 <td>65</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>wait_age</td>
+				 <td>TIME</td>
+				 <td>16</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_file_io</td>
+				 <td>View</td>
+				 <td>io_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>update_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_auto_increment_columns</td>
+				 <td>View</td>
+				 <td>table_schema</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>cron_entry</td>
+				 <td>Table</td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>user_id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_statement_latency</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_runtimes_in_95th_percentile</td>
+				 <td>View</td>
+				 <td>rows_sent_avg</td>
+				 <td>DECIMAL</td>
+				 <td>21</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>latest_file_io</td>
+				 <td>View</td>
+				 <td>file</td>
+				 <td>VARCHAR</td>
+				 <td>512</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>DashboardCamp</td>
+				 <td>Table</td>
+				 <td>logo</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_index_statistics</td>
+				 <td>View</td>
+				 <td>table_name</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_unused_indexes</td>
+				 <td>View</td>
+				 <td>object_schema</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_statement_type</td>
+				 <td>View</td>
+				 <td>total</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>contact_form</td>
+				 <td>Table</td>
+				 <td>created_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_file_by_latency</td>
+				 <td>View</td>
+				 <td>misc_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_buffer_stats_by_schema</td>
+				 <td>View</td>
+				 <td>rows_cached</td>
+				 <td>DECIMAL</td>
+				 <td>44</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>stripe_charges</td>
+				 <td>Table</td>
+				 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>influencer_id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>stripe_charges</td>
+				 <td>Table</td>
+				 <td>created_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>month</td>
+				 <td>VARCHAR</td>
+				 <td>50</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_statement_type</td>
+				 <td>View</td>
+				 <td>rows_affected</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>followed_by</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>strategy_detail</td>
+				 <td>Table</td>
+				 <td>product_cost</td>
+				 <td>DOUBLE</td>
+				 <td>8</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>last_statement</td>
+				 <td>LONGTEXT</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>waiting_trx_rows_locked</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_file_by_latency</td>
+				 <td>View</td>
+				 <td>total</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_latency</td>
+				 <td>View</td>
+				 <td>event_name</td>
+				 <td>VARCHAR</td>
+				 <td>128</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics</td>
+				 <td>View</td>
+				 <td>io_write_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>rows_affected</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>profile_picture</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>time</td>
+				 <td>BIGINT</td>
+				 <td>19</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_redundant_indexes</td>
+				 <td>View</td>
+				 <td>sql_drop_index</td>
+				 <td>VARCHAR</td>
+				 <td>223</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics</td>
+				 <td>View</td>
+				 <td>rows_deleted</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_index_statistics</td>
+				 <td>View</td>
+				 <td>delete_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>waiting_lock_id</td>
+				 <td>VARCHAR</td>
+				 <td>81</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_runtimes_in_95th_percentile</td>
+				 <td>View</td>
+				 <td>exec_count</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>tags</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>lock_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>state</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_latency</td>
+				 <td>View</td>
+				 <td>total_written</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>rows_updated</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>waits_by_user_by_latency</td>
+				 <td>View</td>
+				 <td>event</td>
+				 <td>VARCHAR</td>
+				 <td>128</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>blocking_trx_age</td>
+				 <td>TIME</td>
+				 <td>16</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>strategy_detail</td>
+				 <td>Table</td>
+				 <td>updated_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics</td>
+				 <td>View</td>
+				 <td>io_read_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>strategy_detail</td>
+				 <td>Table</td>
+				 <td>cpm</td>
+				 <td>DOUBLE</td>
+				 <td>8</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>user</td>
+				 <td>VARCHAR</td>
+				 <td>128</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>pusher_messages</td>
+				 <td>Table</td>
+				 <td>has_image</td>
+				 <td>BIT</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>user_id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>cron_entry</td>
+				 <td>Table</td>
+				 <td>created_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics</td>
+				 <td>View</td>
+				 <td>io_read</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>strategy_detail</td>
+				 <td>Table</td>
+				 <td>reachout</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>full_scan</td>
+				 <td>VARCHAR</td>
+				 <td>3</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>io_write_requests</td>
+				 <td>DECIMAL</td>
+				 <td>42</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>stripe_charges</td>
+				 <td>Table</td>
+				 <td>amount</td>
+				 <td>DOUBLE</td>
+				 <td>8</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>user_status</td>
+				 <td>enum(&#39;active&#39;, &#39;inactive&#39;, &#39;suspended&#39;)</td>
+				 <td>9</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>lock_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_full_table_scans</td>
+				 <td>View</td>
+				 <td>rows_sent_avg</td>
+				 <td>DECIMAL UNSIGNED</td>
+				 <td>21</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>video_standard_resolution</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_buffer_stats_by_schema</td>
+				 <td>View</td>
+				 <td>pages_old</td>
+				 <td>BIGINT</td>
+				 <td>19</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>delete_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_latency</td>
+				 <td>View</td>
+				 <td>write_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>io_read_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>plans</td>
+				 <td>Table</td>
+				 <td>updated_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_sorting</td>
+				 <td>View</td>
+				 <td>digest</td>
+				 <td>VARCHAR</td>
+				 <td>32</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_runtimes_in_95th_percentile</td>
+				 <td>View</td>
+				 <td>full_scan</td>
+				 <td>VARCHAR</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>content_request</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_bytes</td>
+				 <td>View</td>
+				 <td>min_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>pusher_messages</td>
+				 <td>Table</td>
+				 <td>updated_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>wait_classes_global_by_latency</td>
+				 <td>View</td>
+				 <td>avg_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>innodb_buffer_data</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_file_by_latency</td>
+				 <td>View</td>
+				 <td>count_write</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>brands</td>
+				 <td>Table</td>
+				 <td>instagram</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>exec_count</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>blocking_lock_mode</td>
+				 <td>VARCHAR</td>
+				 <td>32</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_stages</td>
+				 <td>View</td>
+				 <td>avg_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>wait_classes_global_by_latency</td>
+				 <td>View</td>
+				 <td>min_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_object_overview</td>
+				 <td>View</td>
+				 <td>object_type</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary</td>
+				 <td>View</td>
+				 <td>statement_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics</td>
+				 <td>View</td>
+				 <td>update_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>industries</td>
+				 <td>Table</td>
+				 <td>updated_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>updated_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>brands</td>
+				 <td>Table</td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>user_id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>metrics</td>
+				 <td>View</td>
+				 <td>Variable_value</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>rows_sent</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_buffer_stats_by_schema</td>
+				 <td>View</td>
+				 <td>object_schema</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_statement_type</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary</td>
+				 <td>View</td>
+				 <td>statements</td>
+				 <td>DECIMAL</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_runtimes_in_95th_percentile</td>
+				 <td>View</td>
+				 <td>db</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_temp_tables</td>
+				 <td>View</td>
+				 <td>digest</td>
+				 <td>VARCHAR</td>
+				 <td>32</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>latest_file_io</td>
+				 <td>View</td>
+				 <td>operation</td>
+				 <td>VARCHAR</td>
+				 <td>32</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_full_table_scans</td>
+				 <td>View</td>
+				 <td>rows_examined</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_file_io_type</td>
+				 <td>View</td>
+				 <td>host</td>
+				 <td>VARCHAR</td>
+				 <td>60</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>plans</td>
+				 <td>Table</td>
+				 <td>name</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>blocking_lock_id</td>
+				 <td>VARCHAR</td>
+				 <td>81</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_bytes</td>
+				 <td>View</td>
+				 <td>avg_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_statement_latency</td>
+				 <td>View</td>
+				 <td>total</td>
+				 <td>DECIMAL</td>
+				 <td>42</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_file_io_type</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>tmp_disk_tables</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_redundant_indexes</td>
+				 <td>View</td>
+				 <td>dominant_index_columns</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>command</td>
+				 <td>VARCHAR</td>
+				 <td>16</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_full_table_scans</td>
+				 <td>View</td>
+				 <td>no_good_index_used_count</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>rows_sorted</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>pusher_messages</td>
+				 <td>Table</td>
+				 <td>read</td>
+				 <td>BIT</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>wait_classes_global_by_latency</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_statement_latency</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>full_name</td>
+				 <td>VARCHAR</td>
+				 <td>150</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>eng_rate</td>
+				 <td>DOUBLE</td>
+				 <td>22</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>brands</td>
+				 <td>Table</td>
+				 <td>help</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>thd_id</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>locked_table</td>
+				 <td>VARCHAR</td>
+				 <td>1024</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_file_by_latency</td>
+				 <td>View</td>
+				 <td>file</td>
+				 <td>VARCHAR</td>
+				 <td>512</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>contact_form</td>
+				 <td>Table</td>
+				 <td>status</td>
+				 <td>enum(&#39;unread&#39;, &#39;read&#39;)</td>
+				 <td>6</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_buffer_stats_by_table</td>
+				 <td>View</td>
+				 <td>allocated</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>pusher_channels</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_latency</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_object_overview</td>
+				 <td>View</td>
+				 <td>count</td>
+				 <td>BIGINT</td>
+				 <td>19</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_latency</td>
+				 <td>View</td>
+				 <td>avg_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_stages</td>
+				 <td>View</td>
+				 <td>avg_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_file_by_bytes</td>
+				 <td>View</td>
+				 <td>file</td>
+				 <td>VARCHAR</td>
+				 <td>512</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_statement_latency</td>
+				 <td>View</td>
+				 <td>rows_examined</td>
+				 <td>DECIMAL</td>
+				 <td>42</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary</td>
+				 <td>View</td>
+				 <td>total_connections</td>
+				 <td>DECIMAL</td>
+				 <td>41</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_statement_latency</td>
+				 <td>View</td>
+				 <td>lock_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary</td>
+				 <td>View</td>
+				 <td>user</td>
+				 <td>VARCHAR</td>
+				 <td>16</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary</td>
+				 <td>View</td>
+				 <td>statement_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_stages</td>
+				 <td>View</td>
+				 <td>event_name</td>
+				 <td>VARCHAR</td>
+				 <td>128</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>stripe_charges</td>
+				 <td>Table</td>
+				 <td>campaign</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_stages</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_temp_tables</td>
+				 <td>View</td>
+				 <td>avg_tmp_tables_per_query</td>
+				 <td>DECIMAL</td>
+				 <td>21</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics</td>
+				 <td>View</td>
+				 <td>io_write_requests</td>
+				 <td>DECIMAL</td>
+				 <td>42</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>gender</td>
+				 <td>enum(&#39;0&#39;, &#39;1&#39;, &#39;2&#39;)</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>DashboardCamp</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>plans</td>
+				 <td>Table</td>
+				 <td>braintree_plan</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_stages</td>
+				 <td>View</td>
+				 <td>event_name</td>
+				 <td>VARCHAR</td>
+				 <td>128</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>tmp_disk_tables</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>mail_sent</td>
+				 <td>BIT</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>wait_classes_global_by_avg_latency</td>
+				 <td>View</td>
+				 <td>avg_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_tables_with_full_table_scans</td>
+				 <td>View</td>
+				 <td>object_schema</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>waits_global_by_latency</td>
+				 <td>View</td>
+				 <td>avg_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>strategy_detail</td>
+				 <td>Table</td>
+				 <td>created_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_buffer_stats_by_table</td>
+				 <td>View</td>
+				 <td>object_schema</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>rows_examined</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_bytes</td>
+				 <td>View</td>
+				 <td>avg_written</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>tmp_tables</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>full_scan</td>
+				 <td>VARCHAR</td>
+				 <td>3</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>pusher_messages</td>
+				 <td>Table</td>
+				 <td>read_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_file_by_latency</td>
+				 <td>View</td>
+				 <td>count_read</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_count</td>
+				 <td>Table</td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>user_id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_buffer_stats_by_schema</td>
+				 <td>View</td>
+				 <td>pages_hashed</td>
+				 <td>BIGINT</td>
+				 <td>19</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>industries</td>
+				 <td>Table</td>
+				 <td>name</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_count</td>
+				 <td>Table</td>
+				 <td>eng_rate</td>
+				 <td>DOUBLE</td>
+				 <td>22</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>campaign</td>
+				 <td>Table</td>
+				 <td>file_name</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>waits_by_host_by_latency</td>
+				 <td>View</td>
+				 <td>event</td>
+				 <td>VARCHAR</td>
+				 <td>128</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>content_creators</td>
+				 <td>Table</td>
+				 <td>created_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>media_thumbnail</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics</td>
+				 <td>View</td>
+				 <td>rows_inserted</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_stages</td>
+				 <td>View</td>
+				 <td>total</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>rows_affected</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>migrations</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>created_time</td>
+				 <td>VARCHAR</td>
+				 <td>50</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>clarifai_tags</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_stages</td>
+				 <td>View</td>
+				 <td>total</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary</td>
+				 <td>View</td>
+				 <td>current_connections</td>
+				 <td>DECIMAL</td>
+				 <td>41</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>pusher_messages</td>
+				 <td>Table</td>
+				 <td>has_other_attachment</td>
+				 <td>BIT</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_file_by_bytes</td>
+				 <td>View</td>
+				 <td>total_read</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_file_io_type</td>
+				 <td>View</td>
+				 <td>total</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_count</td>
+				 <td>Table</td>
+				 <td>avg_engagement</td>
+				 <td>DOUBLE</td>
+				 <td>22</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_index_statistics</td>
+				 <td>View</td>
+				 <td>update_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>follows</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>rows_examined</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>DashboardCamp</td>
+				 <td>Table</td>
+				 <td>status</td>
+				 <td>enum(&#39;inactive&#39;, &#39;active&#39;)</td>
+				 <td>8</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>pusher_channels</td>
+				 <td>Table</td>
+				 <td>archived</td>
+				 <td>BIT</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>brands</td>
+				 <td>Table</td>
+				 <td>wheredid</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_errors_or_warnings</td>
+				 <td>View</td>
+				 <td>errors</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics</td>
+				 <td>View</td>
+				 <td>io_write</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>last_wait_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>city</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>source</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>contact_form</td>
+				 <td>Table</td>
+				 <td>email</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>last_name</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>created_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>latest_file_io</td>
+				 <td>View</td>
+				 <td>thread</td>
+				 <td>VARCHAR</td>
+				 <td>149</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>innodb_buffer_allocated</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_stages</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>stripe_id</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_redundant_indexes</td>
+				 <td>View</td>
+				 <td>dominant_index_non_unique</td>
+				 <td>BIGINT</td>
+				 <td>19</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>shipping_address</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_latency</td>
+				 <td>View</td>
+				 <td>max_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>brands</td>
+				 <td>Table</td>
+				 <td>updated_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_full_table_scans</td>
+				 <td>View</td>
+				 <td>exec_count</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>err_count</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_by_thread_by_latency</td>
+				 <td>View</td>
+				 <td>thread_id</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics</td>
+				 <td>View</td>
+				 <td>rows_fetched</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>cron_entry</td>
+				 <td>Table</td>
+				 <td>updated_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>strategy_detail</td>
+				 <td>Table</td>
+				 <td>influencers_count</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_bytes</td>
+				 <td>View</td>
+				 <td>total</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>last_wait</td>
+				 <td>VARCHAR</td>
+				 <td>128</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>paypal_id</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>wait_classes_global_by_latency</td>
+				 <td>View</td>
+				 <td>max_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>campaign</td>
+				 <td>Table</td>
+				 <td>audience</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>innodb_buffer_pages_old</td>
+				 <td>BIGINT</td>
+				 <td>19</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>cron_entry</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>subscriptions</td>
+				 <td>Table</td>
+				 <td>name</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_sorting</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>DashboardCamp</td>
+				 <td>Table</td>
+				 <td>name</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_by_thread_by_latency</td>
+				 <td>View</td>
+				 <td>avg_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_file_io_type</td>
+				 <td>View</td>
+				 <td>latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>contact_form</td>
+				 <td>Table</td>
+				 <td>updated_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>rows_examined</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_auto_increment_columns</td>
+				 <td>View</td>
+				 <td>column_type</td>
+				 <td>LONGTEXT</td>
+				 <td>2147483647</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_index_statistics</td>
+				 <td>View</td>
+				 <td>insert_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics</td>
+				 <td>View</td>
+				 <td>io_misc_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>fetch_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>version</td>
+				 <td>View</td>
+				 <td>mysql_version</td>
+				 <td>VARCHAR</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>waits_by_host_by_latency</td>
+				 <td>View</td>
+				 <td>avg_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_unused_indexes</td>
+				 <td>View</td>
+				 <td>object_name</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_full_table_scans</td>
+				 <td>View</td>
+				 <td>last_seen</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0000-00-00 00:00:00</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics</td>
+				 <td>View</td>
+				 <td>io_misc_requests</td>
+				 <td>DECIMAL</td>
+				 <td>42</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>rows_affected</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary</td>
+				 <td>View</td>
+				 <td>file_ios</td>
+				 <td>DECIMAL</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>last_wait</td>
+				 <td>VARCHAR</td>
+				 <td>128</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>brands</td>
+				 <td>Table</td>
+				 <td>phone_number</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_runtimes_in_95th_percentile</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_buffer_stats_by_table</td>
+				 <td>View</td>
+				 <td>pages</td>
+				 <td>BIGINT</td>
+				 <td>19</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>query</td>
+				 <td>LONGTEXT</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_runtimes_in_95th_percentile</td>
+				 <td>View</td>
+				 <td>query</td>
+				 <td>LONGTEXT</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_file_by_bytes</td>
+				 <td>View</td>
+				 <td>count_read</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>pusher_channels</td>
+				 <td>Table</td>
+				 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>brand_id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_runtimes_in_95th_percentile</td>
+				 <td>View</td>
+				 <td>first_seen</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0000-00-00 00:00:00</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>campaign</td>
+				 <td>Table</td>
+				 <td>created_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_statement_type</td>
+				 <td>View</td>
+				 <td>max_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_temp_tables</td>
+				 <td>View</td>
+				 <td>last_seen</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0000-00-00 00:00:00</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_tables_with_full_table_scans</td>
+				 <td>View</td>
+				 <td>latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>rows_sent</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>industries</td>
+				 <td>Table</td>
+				 <td>created_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_temp_tables</td>
+				 <td>View</td>
+				 <td>disk_tmp_tables</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>brands</td>
+				 <td>Table</td>
+				 <td>industry</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>subscriptions</td>
+				 <td>Table</td>
+				 <td class='primaryKey' title='Primary Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title='Automatically updated by the database'>√</td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>pusher_channels</td>
+				 <td>Table</td>
+				 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>campaign_id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>boomerang</td>
+				 <td>VARCHAR</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_file_by_bytes</td>
+				 <td>View</td>
+				 <td>total_written</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>company_name</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary</td>
+				 <td>View</td>
+				 <td>statements</td>
+				 <td>DECIMAL</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>social_id</td>
+				 <td>VARCHAR</td>
+				 <td>100</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>waits_by_host_by_latency</td>
+				 <td>View</td>
+				 <td>host</td>
+				 <td>VARCHAR</td>
+				 <td>60</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_redundant_indexes</td>
+				 <td>View</td>
+				 <td>table_name</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary</td>
+				 <td>View</td>
+				 <td>statement_avg_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_stages</td>
+				 <td>View</td>
+				 <td>user</td>
+				 <td>VARCHAR</td>
+				 <td>16</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>media</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_redundant_indexes</td>
+				 <td>View</td>
+				 <td>redundant_index_name</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>db</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics</td>
+				 <td>View</td>
+				 <td>insert_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_runtimes_in_95th_percentile</td>
+				 <td>View</td>
+				 <td>rows_examined_avg</td>
+				 <td>DECIMAL</td>
+				 <td>21</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_errors_or_warnings</td>
+				 <td>View</td>
+				 <td>exec_count</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>campaign</td>
+				 <td>Table</td>
+				 <td>industry</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>waits_by_host_by_latency</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_sorting</td>
+				 <td>View</td>
+				 <td>db</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>user_id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_file_by_bytes</td>
+				 <td>View</td>
+				 <td>avg_read</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary</td>
+				 <td>View</td>
+				 <td>unique_users</td>
+				 <td>BIGINT</td>
+				 <td>19</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>db</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_redundant_indexes</td>
+				 <td>View</td>
+				 <td>dominant_index_name</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td></td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>blocking_pid</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_statement_type</td>
+				 <td>View</td>
+				 <td>rows_sent</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>waiting_trx_rows_modified</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>waits_by_host_by_latency</td>
+				 <td>View</td>
+				 <td>total</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>io_read</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>pusher_channels</td>
+				 <td>Table</td>
+				 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>influencer_id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary</td>
+				 <td>View</td>
+				 <td>current_connections</td>
+				 <td>DECIMAL</td>
+				 <td>41</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>strategy_detail</td>
+				 <td>Table</td>
+				 <td class='indexedColumn' title='Indexed'><i class='fa fa-sitemap fa-rotate-120' style='padding-right: 5px;'></i>brand_id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_file_io_type</td>
+				 <td>View</td>
+				 <td>event_name</td>
+				 <td>VARCHAR</td>
+				 <td>128</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_statement_latency</td>
+				 <td>View</td>
+				 <td>max_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>plans</td>
+				 <td>Table</td>
+				 <td>cost</td>
+				 <td>DOUBLE</td>
+				 <td>8</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_sorting</td>
+				 <td>View</td>
+				 <td>avg_sort_merges</td>
+				 <td>DECIMAL</td>
+				 <td>21</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary</td>
+				 <td>View</td>
+				 <td>file_ios</td>
+				 <td>DECIMAL</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_sorting</td>
+				 <td>View</td>
+				 <td>avg_rows_sorted</td>
+				 <td>DECIMAL</td>
+				 <td>21</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>campaign</td>
+				 <td>Table</td>
+				 <td>updated_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_bytes</td>
+				 <td>View</td>
+				 <td>total_read</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>content_request</td>
+				 <td>Table</td>
+				 <td>feedback</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_sorting</td>
+				 <td>View</td>
+				 <td>query</td>
+				 <td>LONGTEXT</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>blocking_trx_started</td>
+				 <td>DATETIME</td>
+				 <td>26</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0000-00-00 00:00:00</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_full_table_scans</td>
+				 <td>View</td>
+				 <td>query</td>
+				 <td>LONGTEXT</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>subscriptions</td>
+				 <td>Table</td>
+				 <td>braintree_id</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>pusher_messages</td>
+				 <td>Table</td>
+				 <td>created_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>count_status</td>
+				 <td>BIT</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>media_standard_resolution</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>DashboardCamp</td>
+				 <td>Table</td>
+				 <td>created_at</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>cpe</td>
+				 <td>DOUBLE</td>
+				 <td>22</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>waiting_query</td>
+				 <td>LONGTEXT</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>pusher_messages</td>
+				 <td>Table</td>
+				 <td>message</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>waiting_trx_age</td>
+				 <td>TIME</td>
+				 <td>16</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_bytes</td>
+				 <td>View</td>
+				 <td>event_name</td>
+				 <td>VARCHAR</td>
+				 <td>128</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_errors_or_warnings</td>
+				 <td>View</td>
+				 <td>query</td>
+				 <td>LONGTEXT</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>contact_form</td>
+				 <td>Table</td>
+				 <td>name</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>io_read_requests</td>
+				 <td>DECIMAL</td>
+				 <td>42</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_wait_by_bytes</td>
+				 <td>View</td>
+				 <td>total_written</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_temp_tables</td>
+				 <td>View</td>
+				 <td>first_seen</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0000-00-00 00:00:00</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>content_creators</td>
+				 <td>Table</td>
+				 <td class='foreignKey' title='Foreign Key'><i class='icon ion-key iconkey' style='padding-left: 5px;'></i>campaign_id</td>
+				 <td>INT UNSIGNED</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>media_low_resolution</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>latest_file_io</td>
+				 <td>View</td>
+				 <td>latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_file_io_type</td>
+				 <td>View</td>
+				 <td>event_name</td>
+				 <td>VARCHAR</td>
+				 <td>128</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>avg_engagement</td>
+				 <td>DOUBLE</td>
+				 <td>22</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>campaign</td>
+				 <td>Table</td>
+				 <td>promote</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>wait_started</td>
+				 <td>DATETIME</td>
+				 <td>26</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>profile</td>
+				 <td>Table</td>
+				 <td>year</td>
+				 <td>VARCHAR</td>
+				 <td>50</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_temp_tables</td>
+				 <td>View</td>
+				 <td>query</td>
+				 <td>LONGTEXT</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_file_by_latency</td>
+				 <td>View</td>
+				 <td>count_misc</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_by_thread_by_latency</td>
+				 <td>View</td>
+				 <td>min_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_runtimes_in_95th_percentile</td>
+				 <td>View</td>
+				 <td>rows_examined</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary</td>
+				 <td>View</td>
+				 <td>host</td>
+				 <td>VARCHAR</td>
+				 <td>60</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>attribution</td>
+				 <td>VARCHAR</td>
+				 <td>200</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>avg_comment</td>
+				 <td>DOUBLE</td>
+				 <td>22</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics</td>
+				 <td>View</td>
+				 <td>io_read_requests</td>
+				 <td>DECIMAL</td>
+				 <td>42</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statement_analysis</td>
+				 <td>View</td>
+				 <td>first_seen</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0000-00-00 00:00:00</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>brands</td>
+				 <td>Table</td>
+				 <td>facebook</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_index_statistics</td>
+				 <td>View</td>
+				 <td>index_name</td>
+				 <td>VARCHAR</td>
+				 <td>64</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>price_per_post</td>
+				 <td>DOUBLE</td>
+				 <td>22</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>name</td>
+				 <td>VARCHAR</td>
+				 <td>150</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>username</td>
+				 <td>VARCHAR</td>
+				 <td>150</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_statement_type</td>
+				 <td>View</td>
+				 <td>max_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_table_statistics_with_buffer</td>
+				 <td>View</td>
+				 <td>io_write</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>nickname</td>
+				 <td>VARCHAR</td>
+				 <td>150</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>host_summary_by_file_io</td>
+				 <td>View</td>
+				 <td>host</td>
+				 <td>VARCHAR</td>
+				 <td>60</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>blocking_query</td>
+				 <td>LONGTEXT</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_count</td>
+				 <td>Table</td>
+				 <td>media</td>
+				 <td>INT</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>lock_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_full_table_scans</td>
+				 <td>View</td>
+				 <td>rows_examined_avg</td>
+				 <td>DECIMAL UNSIGNED</td>
+				 <td>21</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>code</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_runtimes_in_95th_percentile</td>
+				 <td>View</td>
+				 <td>last_seen</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0000-00-00 00:00:00</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_media</td>
+				 <td>Table</td>
+				 <td>media_id</td>
+				 <td>VARCHAR</td>
+				 <td>100</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_count</td>
+				 <td>Table</td>
+				 <td>follows</td>
+				 <td>INT</td>
+				 <td>10</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>waits_by_host_by_latency</td>
+				 <td>View</td>
+				 <td>max_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_count</td>
+				 <td>Table</td>
+				 <td>social_id</td>
+				 <td>VARCHAR</td>
+				 <td>255</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_file_io_type</td>
+				 <td>View</td>
+				 <td>max_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>schema_index_statistics</td>
+				 <td>View</td>
+				 <td>select_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_file_by_bytes</td>
+				 <td>View</td>
+				 <td>total</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>io_global_by_file_by_latency</td>
+				 <td>View</td>
+				 <td>read_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_errors_or_warnings</td>
+				 <td>View</td>
+				 <td>last_seen</td>
+				 <td>TIMESTAMP</td>
+				 <td>26</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0000-00-00 00:00:00</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>strategy_detail</td>
+				 <td>Table</td>
+				 <td>eng_rate</td>
+				 <td>DOUBLE</td>
+				 <td>8</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>users</td>
+				 <td>Table</td>
+				 <td>is_cron</td>
+				 <td>enum(&#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;3&#39;)</td>
+				 <td>1</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>campaign</td>
+				 <td>Table</td>
+				 <td>cost</td>
+				 <td>VARCHAR</td>
+				 <td>150</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_statement_type</td>
+				 <td>View</td>
+				 <td>total_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>campaign</td>
+				 <td>Table</td>
+				 <td>reach</td>
+				 <td>VARCHAR</td>
+				 <td>150</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>session</td>
+				 <td>View</td>
+				 <td>last_wait_latency</td>
+				 <td>TEXT</td>
+				 <td>65535</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>user_summary_by_statement_latency</td>
+				 <td>View</td>
+				 <td>user</td>
+				 <td>VARCHAR</td>
+				 <td>16</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>waits_global_by_latency</td>
+				 <td>View</td>
+				 <td>total</td>
+				 <td>BIGINT UNSIGNED</td>
+				 <td>20</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>processlist</td>
+				 <td>View</td>
+				 <td>last_statement</td>
+				 <td>LONGTEXT</td>
+				 <td>2147483647</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>innodb_lock_waits</td>
+				 <td>View</td>
+				 <td>locked_index</td>
+				 <td>VARCHAR</td>
+				 <td>1024</td>
+				 <td title='nullable'>√</td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>statements_with_errors_or_warnings</td>
+				 <td>View</td>
+				 <td>error_pct</td>
+				 <td>DECIMAL</td>
+				 <td>27</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>0.0000</td>
+				 <td></td>
+				</tr>
+				<tr>
+				 <td>content_creators</td>
+				 <td>Table</td>
+				 <td>status</td>
+				 <td>enum(&#39;bookmark&#39;, &#39;negotiating&#39;, &#39;inprogress&#39;, &#39;complete&#39;, &#39;suggested&#39;)</td>
+				 <td>11</td>
+				 <td title=''></td>
+				 <td title=''></td>
+				 <td>null</td>
+				 <td></td>
+				</tr>
+								</tbody>
+				</table>				
+			</div>
+		</div>	
+      </section>    
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div>
+      <div class="pull-right hidden-xs">
+      </div>
+    </div>
+    <!-- /.container -->
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.3 -->
+<script src="bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="bower/datatables.net/jquery.dataTables.min.js"></script>
+<script src="bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+<script src="bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="bower/datatables.net-buttons/buttons.html5.min.js"></script>
+<script src="bower/datatables.net-buttons/buttons.print.min.js"></script>
+<script src="bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+
+<!-- SlimScroll -->
+<script src="bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+<!-- Salvattore -->
+<script src="bower/salvattore/salvattore.min.js"></script>
+<!-- AnchorJS -->
+<script src="bower/anchor-js/anchor.min.js"></script>
+<!-- CodeMirror -->
+<script src="bower/codemirror/codemirror.js"></script>
+<script src="bower/codemirror/sql.js"></script>
+<!-- AdminLTE App -->
+<script src="bower/admin-lte/dist/js/app.min.js"></script>
+<script src="column.js"></script>
+<script src="schemaSpy.js"></script>
+</body>
+</html>

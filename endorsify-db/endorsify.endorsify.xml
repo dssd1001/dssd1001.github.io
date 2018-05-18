@@ -1,0 +1,973 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="endorsify" schema="endorsify" type="MySQL - 5.6.37-log">
+   <tables>
+      <table catalog="endorsify" name="brands" numRows="34" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="user_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="endorsify" column="id" foreignKey="brands_user_id_foreign" implied="false" onDeleteCascade="true" table="users"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="website" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="description" nullable="false" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="5" name="industry" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="phone_number" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="facebook" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="twitter" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="9" name="instagram" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="10" name="profile_image" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="11" name="document" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="12" name="created_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="13" name="updated_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="14" name="help" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="15" name="type" nullable="false" remarks="" size="7" type="enum('pro', 'starter')"/>
+         <column autoUpdated="false" digits="0" id="16" name="wheredid" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="brands_user_id_foreign" unique="false">
+            <column ascending="true" name="user_id"/>
+         </index>
+      </table>
+      <table catalog="endorsify" name="campaign" numRows="4" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <child catalog="endorsify" column="campaign_id" foreignKey="content_creators_campaign_id_foreign" implied="false" onDeleteCascade="true" table="content_creators"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="user_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="endorsify" column="id" foreignKey="campaign_user_id_foreign" implied="false" onDeleteCascade="true" table="users"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="name" nullable="false" remarks="" size="150" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="promote" nullable="false" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="audience" nullable="false" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="5" name="file_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="content_posted" nullable="false" remarks="" size="150" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="cost" nullable="false" remarks="" size="150" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="reach" nullable="false" remarks="" size="150" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="9" name="likes" nullable="false" remarks="" size="150" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="10" name="status" nullable="false" remarks="" size="8" type="enum('active', 'archived')"/>
+         <column autoUpdated="false" digits="0" id="11" name="created_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="12" name="updated_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="13" name="industry" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="14" name="gender" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="campaign_user_id_foreign" unique="false">
+            <column ascending="true" name="user_id"/>
+         </index>
+      </table>
+      <table catalog="endorsify" name="contact_form" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="email" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="message" nullable="false" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="status" nullable="false" remarks="" size="6" type="enum('unread', 'read')"/>
+         <column autoUpdated="false" digits="0" id="5" name="created_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="6" name="updated_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="7" name="location" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="phone_number" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table catalog="endorsify" name="content_creators" numRows="53" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="campaign_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="endorsify" column="id" foreignKey="content_creators_campaign_id_foreign" implied="false" onDeleteCascade="true" table="campaign"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="user_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="endorsify" column="id" foreignKey="content_creators_user_id_foreign" implied="false" onDeleteCascade="false" table="users"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="isHired" nullable="false" remarks="" size="1" type="BIT"/>
+         <column autoUpdated="false" digits="0" id="4" name="price" nullable="false" remarks="" size="150" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="created_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="6" name="updated_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="7" name="status" nullable="false" remarks="" size="11" type="enum('bookmark', 'negotiating', 'inprogress', 'complete', 'suggested')"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="content_creators_campaign_id_foreign" unique="false">
+            <column ascending="true" name="campaign_id"/>
+         </index>
+         <index name="content_creators_user_id_foreign" unique="false">
+            <column ascending="true" name="user_id"/>
+         </index>
+      </table>
+      <table catalog="endorsify" name="content_request" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="user_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="endorsify" column="id" foreignKey="content_request_user_id_foreign" implied="false" onDeleteCascade="true" table="users"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="feedback" nullable="false" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="status" nullable="false" remarks="" size="9" type="enum('created', 'viewed', 'processed', 'completed')"/>
+         <column autoUpdated="false" digits="0" id="4" name="created_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="5" name="updated_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="content_request_user_id_foreign" unique="false">
+            <column ascending="true" name="user_id"/>
+         </index>
+      </table>
+      <table catalog="endorsify" name="cron_entry" numRows="469" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="user_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="endorsify" column="id" foreignKey="cron_entry_user_id_foreign" implied="false" onDeleteCascade="true" table="users"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="pagination_url" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="status" nullable="false" remarks="" size="1" type="enum('0', '1', '2', '3', '4', '5')"/>
+         <column autoUpdated="false" digits="0" id="4" name="created_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="5" name="updated_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="cron_entry_user_id_foreign" unique="false">
+            <column ascending="true" name="user_id"/>
+         </index>
+      </table>
+      <table catalog="endorsify" name="DashboardCamp" numRows="3" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="created_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="2" name="updated_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="3" name="name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="logo" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="status" nullable="false" remarks="" size="8" type="enum('inactive', 'active')"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table catalog="sys" name="host_summary" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="host" nullable="true" remarks="" size="60" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="statements" nullable="true" remarks="" size="64" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="statement_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="statement_avg_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="table_scans" nullable="true" remarks="" size="65" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="5" name="file_ios" nullable="true" remarks="" size="64" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="6" name="file_io_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="7" name="current_connections" nullable="true" remarks="" size="41" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="8" name="total_connections" nullable="true" remarks="" size="41" type="DECIMAL"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="9" name="unique_users" nullable="false" remarks="" size="19" type="BIGINT"/>
+      </table>
+      <table catalog="sys" name="host_summary_by_file_io" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="host" nullable="true" remarks="" size="60" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="ios" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="io_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+      <table catalog="sys" name="host_summary_by_file_io_type" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="host" nullable="true" remarks="" size="60" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="event_name" nullable="false" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="max_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+      <table catalog="sys" name="host_summary_by_stages" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="host" nullable="true" remarks="" size="60" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="event_name" nullable="false" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="avg_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+      <table catalog="sys" name="host_summary_by_statement_latency" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="host" nullable="true" remarks="" size="60" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="total" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="max_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="lock_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="5" name="rows_sent" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="6" name="rows_examined" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="7" name="rows_affected" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="8" name="full_scans" nullable="true" remarks="" size="43" type="DECIMAL"/>
+      </table>
+      <table catalog="sys" name="host_summary_by_statement_type" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="host" nullable="true" remarks="" size="60" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="statement" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="max_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="5" name="lock_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="6" name="rows_sent" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="7" name="rows_examined" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="8" name="rows_affected" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="9" name="full_scans" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+      </table>
+      <table catalog="endorsify" name="industries" numRows="16" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="status" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="3" name="created_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="4" name="updated_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table catalog="sys" name="innodb_buffer_stats_by_schema" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="object_schema" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="1" name="allocated" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="2" name="data" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="3" name="pages" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="4" name="pages_hashed" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="pages_old" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="6" name="rows_cached" nullable="true" remarks="" size="44" type="DECIMAL"/>
+      </table>
+      <table catalog="sys" name="innodb_buffer_stats_by_table" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="object_schema" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="1" name="object_name" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="2" name="allocated" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="data" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="4" name="pages" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="pages_hashed" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="6" name="pages_old" nullable="false" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="7" name="rows_cached" nullable="true" remarks="" size="44" type="DECIMAL"/>
+      </table>
+      <table catalog="sys" name="innodb_lock_waits" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="wait_started" nullable="true" remarks="" size="26" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="1" name="wait_age" nullable="true" remarks="" size="16" type="TIME"/>
+         <column autoUpdated="false" digits="0" id="2" name="wait_age_secs" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="3" name="locked_table" nullable="false" remarks="" size="1024" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="locked_index" nullable="true" remarks="" size="1024" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="5" name="locked_type" nullable="false" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="6" name="waiting_trx_id" nullable="false" remarks="" size="18" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0000-00-00 00:00:00" digits="0" id="7" name="waiting_trx_started" nullable="false" remarks="" size="26" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="8" name="waiting_trx_age" nullable="true" remarks="" size="16" type="TIME"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="9" name="waiting_trx_rows_locked" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="10" name="waiting_trx_rows_modified" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="11" name="waiting_pid" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="12" name="waiting_query" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="13" name="waiting_lock_id" nullable="false" remarks="" size="81" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="14" name="waiting_lock_mode" nullable="false" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="15" name="blocking_trx_id" nullable="false" remarks="" size="18" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="16" name="blocking_pid" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="17" name="blocking_query" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="18" name="blocking_lock_id" nullable="false" remarks="" size="81" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="19" name="blocking_lock_mode" nullable="false" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0000-00-00 00:00:00" digits="0" id="20" name="blocking_trx_started" nullable="false" remarks="" size="26" type="DATETIME"/>
+         <column autoUpdated="false" digits="0" id="21" name="blocking_trx_age" nullable="true" remarks="" size="16" type="TIME"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="22" name="blocking_trx_rows_locked" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="23" name="blocking_trx_rows_modified" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="24" name="sql_kill_blocking_query" nullable="true" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="25" name="sql_kill_blocking_connection" nullable="true" remarks="" size="26" type="VARCHAR"/>
+      </table>
+      <table catalog="sys" name="io_by_thread_by_latency" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="user" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="total" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="min_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="avg_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="5" name="max_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="6" name="thread_id" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="7" name="processlist_id" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+      </table>
+      <table catalog="sys" name="io_global_by_file_by_bytes" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="file" nullable="true" remarks="" size="512" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="count_read" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_read" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="avg_read" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="count_write" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="5" name="total_written" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="6" name="avg_write" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="7" name="total" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" defaultValue="0.00" digits="2" id="8" name="write_pct" nullable="false" remarks="" size="26" type="DECIMAL"/>
+      </table>
+      <table catalog="sys" name="io_global_by_file_by_latency" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="file" nullable="true" remarks="" size="512" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="count_read" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="4" name="read_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="5" name="count_write" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="6" name="write_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="7" name="count_misc" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="8" name="misc_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+      <table catalog="sys" name="io_global_by_wait_by_bytes" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="event_name" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="min_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="avg_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="5" name="max_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="6" name="count_read" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="7" name="total_read" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="8" name="avg_read" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="9" name="count_write" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="10" name="total_written" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="11" name="avg_written" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="12" name="total_requested" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+      <table catalog="sys" name="io_global_by_wait_by_latency" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="event_name" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="avg_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="max_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="5" name="read_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="6" name="write_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="7" name="misc_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="8" name="count_read" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="9" name="total_read" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="10" name="avg_read" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="11" name="count_write" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="12" name="total_written" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="13" name="avg_written" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+      <table catalog="sys" name="latest_file_io" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="thread" nullable="true" remarks="" size="149" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="file" nullable="true" remarks="" size="512" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="operation" nullable="false" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="requested" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+      <table catalog="sys" name="metrics" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="Variable_name" nullable="true" remarks="" size="193" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="Variable_value" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="2" name="Type" nullable="true" remarks="" size="210" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="3" name="Enabled" nullable="false" remarks="" size="3" type="VARCHAR"/>
+      </table>
+      <table catalog="endorsify" name="migrations" numRows="32" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="migration" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="batch" nullable="false" remarks="" size="10" type="INT"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table catalog="endorsify" name="plans" numRows="2" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="slug" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="braintree_plan" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="2" id="4" name="cost" nullable="false" remarks="" size="8" type="DOUBLE"/>
+         <column autoUpdated="false" digits="0" id="5" name="description" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="6" name="created_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="7" name="updated_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="plans_slug_unique" unique="true">
+            <column ascending="true" name="slug"/>
+         </index>
+      </table>
+      <table catalog="sys" name="processlist" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="thd_id" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="conn_id" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="user" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="db" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="command" nullable="true" remarks="" size="16" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="state" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="time" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="7" name="current_statement" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="8" name="statement_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="9" name="lock_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="10" name="rows_examined" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="11" name="rows_sent" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="12" name="rows_affected" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="13" name="tmp_tables" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="14" name="tmp_disk_tables" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="15" name="full_scan" nullable="false" remarks="" size="3" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="16" name="last_statement" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="17" name="last_statement_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="18" name="last_wait" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="19" name="last_wait_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="20" name="source" nullable="true" remarks="" size="64" type="VARCHAR"/>
+      </table>
+      <table catalog="endorsify" name="profile" numRows="840" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="user_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="endorsify" column="id" foreignKey="profile_user_id_foreign" implied="false" onDeleteCascade="true" table="users"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="bio" nullable="false" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="indicative_fee" nullable="false" remarks="" size="22" type="DOUBLE"/>
+         <column autoUpdated="false" digits="0" id="4" name="first_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="last_name" nullable="false" remarks="" size="150" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="month" nullable="false" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="day" nullable="false" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="year" nullable="false" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="9" name="dob" nullable="false" remarks="" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="10" name="gender" nullable="false" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="11" name="image" nullable="false" remarks="" size="20" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="12" name="video" nullable="false" remarks="" size="20" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="13" name="gif" nullable="false" remarks="" size="20" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="14" name="boomerang" nullable="false" remarks="" size="20" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="15" name="location" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="16" name="city" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="17" name="phone_number" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="18" name="paypal_email" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="19" name="shipping_address" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="20" name="company_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="21" name="vat" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="22" name="status" nullable="false" remarks="" size="1" type="BIT"/>
+         <column autoUpdated="false" digits="0" id="23" name="created_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="24" name="updated_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="profile_user_id_foreign" unique="false">
+            <column ascending="true" name="user_id"/>
+         </index>
+      </table>
+      <table catalog="sys" name="ps_check_lost_instrumentation" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" defaultValue="" digits="0" id="0" name="variable_name" nullable="false" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="variable_value" nullable="true" remarks="" size="1024" type="VARCHAR"/>
+      </table>
+      <table catalog="endorsify" name="pusher_channels" numRows="15" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="created_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="2" name="updated_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="3" name="name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="4" name="archived" nullable="false" remarks="" size="1" type="BIT"/>
+         <column autoUpdated="false" defaultValue="0000-00-00 00:00:00" digits="0" id="5" name="last_active" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="6" name="campaign_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="7" name="brand_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="8" name="influencer_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="pusher_channels_brand_id_foreign" unique="false">
+            <column ascending="true" name="brand_id"/>
+         </index>
+         <index name="pusher_channels_campaign_id_foreign" unique="false">
+            <column ascending="true" name="campaign_id"/>
+         </index>
+         <index name="pusher_channels_influencer_id_foreign" unique="false">
+            <column ascending="true" name="influencer_id"/>
+         </index>
+      </table>
+      <table catalog="endorsify" name="pusher_messages" numRows="12" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="created_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="2" name="updated_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="3" name="channel_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="4" name="user_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="read" nullable="false" remarks="" size="1" type="BIT"/>
+         <column autoUpdated="false" digits="0" id="6" name="read_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="7" name="message" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="has_image" nullable="false" remarks="" size="1" type="BIT"/>
+         <column autoUpdated="false" digits="0" id="9" name="has_other_attachment" nullable="false" remarks="" size="1" type="BIT"/>
+         <column autoUpdated="false" digits="0" id="10" name="original_file_name" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="pusher_messages_channel_id_foreign" unique="false">
+            <column ascending="true" name="channel_id"/>
+         </index>
+         <index name="pusher_messages_user_id_foreign" unique="false">
+            <column ascending="true" name="user_id"/>
+         </index>
+      </table>
+      <table catalog="sys" name="schema_auto_increment_columns" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" defaultValue="" digits="0" id="0" name="table_schema" nullable="false" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="1" name="table_name" nullable="false" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="2" name="column_name" nullable="false" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="3" name="data_type" nullable="false" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="column_type" nullable="false" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="is_signed" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="6" name="is_unsigned" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="7" name="max_value" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="8" name="auto_increment" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="4" id="9" name="auto_increment_ratio" nullable="true" remarks="" size="25" type="DECIMAL UNSIGNED"/>
+      </table>
+      <table catalog="sys" name="schema_index_statistics" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="table_schema" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="table_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="index_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="rows_selected" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="4" name="select_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="5" name="rows_inserted" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="6" name="insert_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="7" name="rows_updated" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="8" name="update_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="9" name="rows_deleted" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="10" name="delete_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+      <table catalog="sys" name="schema_object_overview" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" defaultValue="" digits="0" id="0" name="db" nullable="false" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="object_type" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="2" name="count" nullable="false" remarks="" size="19" type="BIGINT"/>
+      </table>
+      <table catalog="sys" name="schema_redundant_indexes" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" defaultValue="" digits="0" id="0" name="table_schema" nullable="false" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="1" name="table_name" nullable="false" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="2" name="redundant_index_name" nullable="false" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="redundant_index_columns" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="redundant_index_non_unique" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="5" name="dominant_index_name" nullable="false" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="dominant_index_columns" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="7" name="dominant_index_non_unique" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="8" name="subpart_exists" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="9" name="sql_drop_index" nullable="true" remarks="" size="223" type="VARCHAR"/>
+      </table>
+      <table catalog="sys" name="schema_table_statistics" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="table_schema" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="table_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="rows_fetched" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="4" name="fetch_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="5" name="rows_inserted" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="6" name="insert_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="7" name="rows_updated" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="8" name="update_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="9" name="rows_deleted" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="10" name="delete_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="11" name="io_read_requests" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="12" name="io_read" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="13" name="io_read_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="14" name="io_write_requests" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="15" name="io_write" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="16" name="io_write_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="17" name="io_misc_requests" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="18" name="io_misc_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+      <table catalog="sys" name="schema_table_statistics_with_buffer" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="table_schema" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="table_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="rows_fetched" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="fetch_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="rows_inserted" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="5" name="insert_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="6" name="rows_updated" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="7" name="update_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="8" name="rows_deleted" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="9" name="delete_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="10" name="io_read_requests" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="11" name="io_read" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="12" name="io_read_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="13" name="io_write_requests" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="14" name="io_write" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="15" name="io_write_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="16" name="io_misc_requests" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="17" name="io_misc_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="18" name="innodb_buffer_allocated" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="19" name="innodb_buffer_data" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="20" name="innodb_buffer_free" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="21" name="innodb_buffer_pages" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="22" name="innodb_buffer_pages_hashed" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="23" name="innodb_buffer_pages_old" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="24" name="innodb_buffer_rows_cached" nullable="true" remarks="" size="44" type="DECIMAL"/>
+      </table>
+      <table catalog="sys" name="schema_tables_with_full_table_scans" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="object_schema" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="object_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="rows_full_scanned" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+      <table catalog="sys" name="schema_unused_indexes" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="object_schema" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="object_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="index_name" nullable="true" remarks="" size="64" type="VARCHAR"/>
+      </table>
+      <table catalog="sys" name="session" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="thd_id" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="conn_id" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="user" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="db" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="command" nullable="true" remarks="" size="16" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="state" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="time" nullable="true" remarks="" size="19" type="BIGINT"/>
+         <column autoUpdated="false" digits="0" id="7" name="current_statement" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="8" name="statement_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="9" name="lock_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="10" name="rows_examined" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="11" name="rows_sent" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="12" name="rows_affected" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="13" name="tmp_tables" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="14" name="tmp_disk_tables" nullable="true" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="15" name="full_scan" nullable="false" remarks="" size="3" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="16" name="last_statement" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="17" name="last_statement_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="18" name="last_wait" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="19" name="last_wait_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="20" name="source" nullable="true" remarks="" size="64" type="VARCHAR"/>
+      </table>
+      <table catalog="sys" name="statement_analysis" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="query" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="1" name="db" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="2" name="full_scan" nullable="false" remarks="" size="1" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="exec_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="4" name="err_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="5" name="warn_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="6" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="7" name="max_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="8" name="avg_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="9" name="lock_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="10" name="rows_sent" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="11" name="rows_sent_avg" nullable="false" remarks="" size="21" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="12" name="rows_examined" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="13" name="rows_examined_avg" nullable="false" remarks="" size="21" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="14" name="rows_affected" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="15" name="rows_affected_avg" nullable="false" remarks="" size="21" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="16" name="tmp_tables" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="17" name="tmp_disk_tables" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="18" name="rows_sorted" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="19" name="sort_merge_passes" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="20" name="digest" nullable="true" remarks="" size="32" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="0000-00-00 00:00:00" digits="0" id="21" name="first_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" defaultValue="0000-00-00 00:00:00" digits="0" id="22" name="last_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+      </table>
+      <table catalog="sys" name="statements_with_errors_or_warnings" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="query" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="1" name="db" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="exec_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="errors" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0.0000" digits="4" id="4" name="error_pct" nullable="false" remarks="" size="27" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="5" name="warnings" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0.0000" digits="4" id="6" name="warning_pct" nullable="false" remarks="" size="27" type="DECIMAL"/>
+         <column autoUpdated="false" defaultValue="0000-00-00 00:00:00" digits="0" id="7" name="first_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" defaultValue="0000-00-00 00:00:00" digits="0" id="8" name="last_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="9" name="digest" nullable="true" remarks="" size="32" type="VARCHAR"/>
+      </table>
+      <table catalog="sys" name="statements_with_full_table_scans" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="query" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="1" name="db" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="exec_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="no_index_used_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="5" name="no_good_index_used_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="6" name="no_index_used_pct" nullable="false" remarks="" size="24" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="7" name="rows_sent" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="8" name="rows_examined" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="9" name="rows_sent_avg" nullable="true" remarks="" size="21" type="DECIMAL UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="10" name="rows_examined_avg" nullable="true" remarks="" size="21" type="DECIMAL UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0000-00-00 00:00:00" digits="0" id="11" name="first_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" defaultValue="0000-00-00 00:00:00" digits="0" id="12" name="last_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="13" name="digest" nullable="true" remarks="" size="32" type="VARCHAR"/>
+      </table>
+      <table catalog="sys" name="statements_with_runtimes_in_95th_percentile" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="query" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="1" name="db" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="2" name="full_scan" nullable="false" remarks="" size="1" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="exec_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="4" name="err_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="5" name="warn_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="6" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="7" name="max_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="8" name="avg_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="9" name="rows_sent" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="10" name="rows_sent_avg" nullable="false" remarks="" size="21" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="11" name="rows_examined" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="12" name="rows_examined_avg" nullable="false" remarks="" size="21" type="DECIMAL"/>
+         <column autoUpdated="false" defaultValue="0000-00-00 00:00:00" digits="0" id="13" name="first_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" defaultValue="0000-00-00 00:00:00" digits="0" id="14" name="last_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="15" name="digest" nullable="true" remarks="" size="32" type="VARCHAR"/>
+      </table>
+      <table catalog="sys" name="statements_with_sorting" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="query" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="1" name="db" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="exec_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="sort_merge_passes" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="avg_sort_merges" nullable="false" remarks="" size="21" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="6" name="sorts_using_scans" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="7" name="sort_using_range" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="8" name="rows_sorted" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="9" name="avg_rows_sorted" nullable="false" remarks="" size="21" type="DECIMAL"/>
+         <column autoUpdated="false" defaultValue="0000-00-00 00:00:00" digits="0" id="10" name="first_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" defaultValue="0000-00-00 00:00:00" digits="0" id="11" name="last_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="12" name="digest" nullable="true" remarks="" size="32" type="VARCHAR"/>
+      </table>
+      <table catalog="sys" name="statements_with_temp_tables" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="query" nullable="true" remarks="" size="2147483647" type="LONGTEXT"/>
+         <column autoUpdated="false" digits="0" id="1" name="db" nullable="true" remarks="" size="64" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="exec_count" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="memory_tmp_tables" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="5" name="disk_tmp_tables" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="6" name="avg_tmp_tables_per_query" nullable="false" remarks="" size="21" type="DECIMAL"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="7" name="tmp_tables_to_disk_pct" nullable="false" remarks="" size="24" type="DECIMAL"/>
+         <column autoUpdated="false" defaultValue="0000-00-00 00:00:00" digits="0" id="8" name="first_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" defaultValue="0000-00-00 00:00:00" digits="0" id="9" name="last_seen" nullable="false" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="10" name="digest" nullable="true" remarks="" size="32" type="VARCHAR"/>
+      </table>
+      <table catalog="endorsify" name="strategy_detail" numRows="4" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="campaign_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="brand_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="influencers_count" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="4" name="reachout" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="2" id="5" name="budget" nullable="false" remarks="" size="8" type="DOUBLE"/>
+         <column autoUpdated="false" digits="2" id="6" name="product_cost" nullable="false" remarks="" size="8" type="DOUBLE"/>
+         <column autoUpdated="false" digits="2" id="7" name="eng_rate" nullable="false" remarks="" size="8" type="DOUBLE"/>
+         <column autoUpdated="false" digits="2" id="8" name="cpm" nullable="false" remarks="" size="8" type="DOUBLE"/>
+         <column autoUpdated="false" digits="2" id="9" name="cpe" nullable="false" remarks="" size="8" type="DOUBLE"/>
+         <column autoUpdated="false" digits="0" id="10" name="created_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="11" name="updated_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="strategy_detail_brand_id_foreign" unique="false">
+            <column ascending="true" name="brand_id"/>
+         </index>
+         <index name="strategy_detail_campaign_id_foreign" unique="false">
+            <column ascending="true" name="campaign_id"/>
+         </index>
+      </table>
+      <table catalog="endorsify" name="stripe_charges" numRows="24" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="created_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="2" name="updated_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="3" name="brand_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="4" name="influencer_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="5" name="campaign" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="2" id="6" name="amount" nullable="false" remarks="" size="8" type="DOUBLE"/>
+         <column autoUpdated="false" defaultValue="1" digits="0" id="7" name="in_escrow" nullable="false" remarks="" size="1" type="BIT"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="stripe_charges_brand_id_foreign" unique="false">
+            <column ascending="true" name="brand_id"/>
+         </index>
+         <index name="stripe_charges_influencer_id_foreign" unique="false">
+            <column ascending="true" name="influencer_id"/>
+         </index>
+      </table>
+      <table catalog="endorsify" name="subscriptions" numRows="0" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="user_id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="braintree_id" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="braintree_plan" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="quantity" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="6" name="trial_ends_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="7" name="ends_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="8" name="created_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="9" name="updated_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="subscriptions_user_id_foreign" unique="false">
+            <column ascending="true" name="user_id"/>
+         </index>
+      </table>
+      <table catalog="endorsify" name="user_count" numRows="116464" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="user_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="endorsify" column="id" foreignKey="user_count_user_id_foreign" implied="false" onDeleteCascade="true" table="users"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="social_id" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="media" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="4" name="follows" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="5" name="followed_by" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="6" name="eng_rate" nullable="false" remarks="" size="22" type="DOUBLE"/>
+         <column autoUpdated="false" digits="0" id="7" name="avg_likes" nullable="false" remarks="" size="22" type="DOUBLE"/>
+         <column autoUpdated="false" digits="0" id="8" name="date" nullable="false" remarks="" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="9" name="created_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="10" name="updated_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="11" name="avg_comment" nullable="false" remarks="" size="22" type="DOUBLE"/>
+         <column autoUpdated="false" digits="0" id="12" name="avg_engagement" nullable="false" remarks="" size="22" type="DOUBLE"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="user_count_user_id_foreign" unique="false">
+            <column ascending="true" name="user_id"/>
+         </index>
+      </table>
+      <table catalog="endorsify" name="user_media" numRows="672615" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="1" name="user_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <parent catalog="endorsify" column="id" foreignKey="user_media_user_id_foreign" implied="false" onDeleteCascade="false" table="users"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="media_id" nullable="false" remarks="" size="100" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="social_id" nullable="false" remarks="" size="100" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="tags" nullable="false" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="5" name="attribution" nullable="false" remarks="" size="200" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="comments_count" nullable="false" remarks="" size="100" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="likes_count" nullable="false" remarks="" size="100" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="filter" nullable="false" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="9" name="text" nullable="false" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="10" name="object" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="11" name="media_low_resolution" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="12" name="media_standard_resolution" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="13" name="media_thumbnail" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="14" name="video_low_resolution" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="15" name="video_standard_resolution" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="16" name="link" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="17" name="type" nullable="false" remarks="" size="15" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="18" name="user_has_liked" nullable="false" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="19" name="location" nullable="false" remarks="" size="100" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="20" name="created_time" nullable="false" remarks="" size="50" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="21" name="day" nullable="false" remarks="" size="80" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="22" name="time" nullable="false" remarks="" size="16" type="TIME"/>
+         <column autoUpdated="false" digits="0" id="23" name="created_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="24" name="updated_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="25" name="clarifai_tags" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+         <index name="user_media_user_id_foreign" unique="false">
+            <column ascending="true" name="user_id"/>
+         </index>
+      </table>
+      <table catalog="sys" name="user_summary" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="user" nullable="true" remarks="" size="16" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="statements" nullable="true" remarks="" size="64" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="statement_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="statement_avg_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="table_scans" nullable="true" remarks="" size="65" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="5" name="file_ios" nullable="true" remarks="" size="64" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="6" name="file_io_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="7" name="current_connections" nullable="true" remarks="" size="41" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="8" name="total_connections" nullable="true" remarks="" size="41" type="DECIMAL"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="9" name="unique_hosts" nullable="false" remarks="" size="19" type="BIGINT"/>
+      </table>
+      <table catalog="sys" name="user_summary_by_file_io" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="user" nullable="true" remarks="" size="16" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="ios" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="io_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+      <table catalog="sys" name="user_summary_by_file_io_type" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="user" nullable="true" remarks="" size="16" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="event_name" nullable="false" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="max_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+      <table catalog="sys" name="user_summary_by_stages" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="user" nullable="true" remarks="" size="16" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="event_name" nullable="false" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="avg_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+      <table catalog="sys" name="user_summary_by_statement_latency" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="user" nullable="true" remarks="" size="16" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="total" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="max_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="lock_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="5" name="rows_sent" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="6" name="rows_examined" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="7" name="rows_affected" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="8" name="full_scans" nullable="true" remarks="" size="43" type="DECIMAL"/>
+      </table>
+      <table catalog="sys" name="user_summary_by_statement_type" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="user" nullable="true" remarks="" size="16" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="statement" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="max_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="5" name="lock_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="6" name="rows_sent" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="7" name="rows_examined" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="8" name="rows_affected" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="9" name="full_scans" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+      </table>
+      <table catalog="endorsify" name="users" numRows="951" remarks="" type="TABLE">
+         <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
+            <child catalog="endorsify" column="user_id" foreignKey="brands_user_id_foreign" implied="false" onDeleteCascade="true" table="brands"/>
+            <child catalog="endorsify" column="user_id" foreignKey="campaign_user_id_foreign" implied="false" onDeleteCascade="true" table="campaign"/>
+            <child catalog="endorsify" column="user_id" foreignKey="content_creators_user_id_foreign" implied="false" onDeleteCascade="false" table="content_creators"/>
+            <child catalog="endorsify" column="user_id" foreignKey="content_request_user_id_foreign" implied="false" onDeleteCascade="true" table="content_request"/>
+            <child catalog="endorsify" column="user_id" foreignKey="cron_entry_user_id_foreign" implied="false" onDeleteCascade="true" table="cron_entry"/>
+            <child catalog="endorsify" column="user_id" foreignKey="profile_user_id_foreign" implied="false" onDeleteCascade="true" table="profile"/>
+            <child catalog="endorsify" column="user_id" foreignKey="user_count_user_id_foreign" implied="false" onDeleteCascade="true" table="user_count"/>
+            <child catalog="endorsify" column="user_id" foreignKey="user_media_user_id_foreign" implied="false" onDeleteCascade="false" table="user_media"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="social_id" nullable="true" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="first_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="3" name="last_name" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="4" name="username" nullable="false" remarks="" size="150" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="5" name="nickname" nullable="false" remarks="" size="150" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="6" name="full_name" nullable="false" remarks="" size="150" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="7" name="name" nullable="false" remarks="" size="150" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="8" name="email" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="9" name="password" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="10" name="access_token" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="11" name="code" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="12" name="gender" nullable="false" remarks="" size="1" type="enum('0', '1', '2')"/>
+         <column autoUpdated="false" digits="0" id="13" name="dob" nullable="false" remarks="" size="10" type="DATE"/>
+         <column autoUpdated="false" digits="0" id="14" name="age" nullable="false" remarks="" size="10" type="INT"/>
+         <column autoUpdated="false" digits="0" id="15" name="price_per_post" nullable="false" remarks="" size="22" type="DOUBLE"/>
+         <column autoUpdated="false" digits="0" id="16" name="brand_image" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="17" name="bio" nullable="false" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="18" name="industry" nullable="false" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="19" name="website" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="20" name="avatar" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="21" name="profile_picture" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="22" name="media" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="23" name="followed_by" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="24" name="follows" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="25" name="avg_likes" nullable="false" remarks="" size="22" type="DOUBLE"/>
+         <column autoUpdated="false" digits="0" id="26" name="eng_rate" nullable="false" remarks="" size="22" type="DOUBLE"/>
+         <column autoUpdated="false" digits="0" id="27" name="cpe" nullable="false" remarks="" size="22" type="DOUBLE"/>
+         <column autoUpdated="false" digits="0" id="28" name="cpm" nullable="false" remarks="" size="22" type="DOUBLE"/>
+         <column autoUpdated="false" digits="0" id="29" name="status" nullable="false" remarks="" size="1" type="enum('0', '1', '2', '3', '4', '5', '6')"/>
+         <column autoUpdated="false" digits="0" id="30" name="user_status" nullable="false" remarks="" size="9" type="enum('active', 'inactive', 'suspended')"/>
+         <column autoUpdated="false" digits="0" id="31" name="type" nullable="false" remarks="" size="10" type="enum('admin', 'influencer', 'brand', 'sub-admin')"/>
+         <column autoUpdated="false" digits="0" id="32" name="is_cron" nullable="false" remarks="" size="1" type="enum('0', '1', '2', '3')"/>
+         <column autoUpdated="false" digits="0" id="33" name="access_revoked" nullable="false" remarks="" size="1" type="BIT"/>
+         <column autoUpdated="false" digits="0" id="34" name="mail_sent" nullable="false" remarks="" size="1" type="BIT"/>
+         <column autoUpdated="false" digits="0" id="35" name="count_status" nullable="false" remarks="" size="1" type="BIT"/>
+         <column autoUpdated="false" digits="0" id="36" name="remember_token" nullable="true" remarks="" size="100" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="37" name="created_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="38" name="updated_at" nullable="true" remarks="" size="26" type="TIMESTAMP"/>
+         <column autoUpdated="false" digits="0" id="39" name="stripe_id" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="40" name="avg_comment" nullable="false" remarks="" size="22" type="DOUBLE"/>
+         <column autoUpdated="false" digits="0" id="41" name="avg_engagement" nullable="false" remarks="" size="22" type="DOUBLE"/>
+         <column autoUpdated="false" digits="0" id="42" name="paypal_id" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="43" name="plan" nullable="false" remarks="" size="255" type="VARCHAR"/>
+         <primaryKey column="id" sequenceNumberInPK="1"/>
+         <index name="PRIMARY" unique="true">
+            <column ascending="true" name="id"/>
+         </index>
+      </table>
+      <table catalog="sys" name="version" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" defaultValue="" digits="0" id="0" name="sys_version" nullable="false" remarks="" size="5" type="VARCHAR"/>
+         <column autoUpdated="false" defaultValue="" digits="0" id="1" name="mysql_version" nullable="false" remarks="" size="10" type="VARCHAR"/>
+      </table>
+      <table catalog="sys" name="wait_classes_global_by_avg_latency" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="event_class" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="total" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="min_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="avg_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="5" name="max_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+      <table catalog="sys" name="wait_classes_global_by_latency" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="event_class" nullable="true" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="total" nullable="true" remarks="" size="42" type="DECIMAL"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="min_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="avg_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="5" name="max_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+      <table catalog="sys" name="waits_by_host_by_latency" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="host" nullable="true" remarks="" size="60" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="event" nullable="false" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="avg_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="5" name="max_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+      <table catalog="sys" name="waits_by_user_by_latency" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="user" nullable="true" remarks="" size="16" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="event" nullable="false" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="2" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="3" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="avg_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="5" name="max_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+      <table catalog="sys" name="waits_global_by_latency" numRows="0" remarks="" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="events" nullable="false" remarks="" size="128" type="VARCHAR"/>
+         <column autoUpdated="false" digits="0" id="1" name="total" nullable="false" remarks="" size="20" type="BIGINT UNSIGNED"/>
+         <column autoUpdated="false" digits="0" id="2" name="total_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="3" name="avg_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+         <column autoUpdated="false" digits="0" id="4" name="max_latency" nullable="true" remarks="" size="65535" type="TEXT"/>
+      </table>
+   </tables>
+</database>
