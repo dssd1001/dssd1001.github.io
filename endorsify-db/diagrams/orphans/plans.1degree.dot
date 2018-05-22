@@ -1,4 +1,5 @@
 // dot 2.40 on Mac OS X 10.13.4
+// SchemaSpy rev Unknown
 digraph "plans" {
   graph [
     rankdir="RL"
