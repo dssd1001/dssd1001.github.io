@@ -113,7 +113,7 @@
             <column ascending="true" name="user_id"/>
          </index>
       </table>
-      <table catalog="endorsify" name="cron_entry" numRows="469" remarks="" type="TABLE">
+      <table catalog="endorsify" name="cron_entry" numRows="468" remarks="" type="TABLE">
          <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
          <column autoUpdated="false" digits="0" id="1" name="user_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
             <parent catalog="endorsify" column="id" foreignKey="cron_entry_user_id_foreign" implied="false" onDeleteCascade="true" table="users"/>
@@ -776,7 +776,7 @@
             <column ascending="true" name="user_id"/>
          </index>
       </table>
-      <table catalog="endorsify" name="user_media" numRows="672615" remarks="" type="TABLE">
+      <table catalog="endorsify" name="user_media" numRows="686314" remarks="" type="TABLE">
          <column autoUpdated="true" digits="0" id="0" name="id" nullable="false" remarks="" size="10" type="INT UNSIGNED"/>
          <column autoUpdated="false" digits="0" id="1" name="user_id" nullable="false" remarks="" size="10" type="INT UNSIGNED">
             <parent catalog="endorsify" column="id" foreignKey="user_media_user_id_foreign" implied="false" onDeleteCascade="false" table="users"/>
