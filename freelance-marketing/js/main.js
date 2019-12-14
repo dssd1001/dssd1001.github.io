@@ -9,10 +9,10 @@ $(document).ready(function(){
 	fitscreen 			 = window_height - header_height;
 
 
-	$(".fullscreen").css("height", window_height)
+	$(".fullscreen").css("height", window_height * 0.94)
 	$(".fitscreen").css("height", fitscreen);
 
-     
+
      // -------   Active Mobile Menu-----//
 
     $(".menu-bar").on('click', function(e){
@@ -21,7 +21,7 @@ $(document).ready(function(){
         $("span", this).toggleClass("lnr-menu lnr-cross");
         $(".main-menu").addClass('mobile-menu');
     });
-     
+
     $('select').niceSelect();
     $('.img-pop-up').magnificPopup({
         type: 'image',
@@ -30,7 +30,7 @@ $(document).ready(function(){
         }
     });
 
-    //  Counter Js 
+    //  Counter Js
 
     $('.counter').counterUp({
         delay: 10,
@@ -39,7 +39,7 @@ $(document).ready(function(){
 
     $(document).ready(function() {
         $('#mc_embed_signup').find('form').ajaxChimp();
-    });      
+    });
     // -------   Mail Send ajax
 
      $(document).ready(function() {
