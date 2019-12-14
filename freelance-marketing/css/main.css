@@ -44,7 +44,8 @@
 
 body {
   color: #777777;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  font-family: "Proza Libre", sans-serif;
   font-size: 14px;
   font-weight: 300;
   line-height: 1.5em;
@@ -101,7 +102,8 @@ a, a:focus, a:hover {
 
 h1, h2, h3,
 h4, h5, h6 {
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  font-family: "Proza Libre", sans-serif;
   color: #222222;
   line-height: 1.5em;
   margin-bottom: 0;
@@ -112,7 +114,8 @@ h4, h5, h6 {
 .h4, .h5, .h6 {
   margin-bottom: 0;
   margin-top: 0;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  font-family: "Proza Libre", sans-serif;
   font-weight: 600;
   color: #222222; }
 
@@ -700,6 +703,86 @@ h1, h2, h3, h4, h5, h6 {
     .genric-btn.primary-border:hover {
       color: #fff;
       background: #C7AB7A;
+      border: 1px solid transparent; }
+  .genric-btn.venmo {
+    color: #fff;
+    background: #3d95ce;
+    border: 1px solid transparent; }
+    .genric-btn.venmo:hover {
+      color: #3d95ce;
+      border: 1px solid #3d95ce;
+      background: #fff; }
+  .genric-btn.venmo-border {
+    color: #3d95ce;
+    border: 1px solid #3d95ce;
+    background: #fff; }
+    .genric-btn.venmo-border:hover {
+      color: #fff;
+      background: #3d95ce;
+      border: 1px solid transparent; }
+  .genric-btn.linkedin {
+    color: #fff;
+    background: #2867B2;
+    border: 1px solid transparent; }
+    .genric-btn.linkedin:hover {
+      color: #2867B2;
+      border: 1px solid #2867B2;
+      background: #fff; }
+  .genric-btn.linkedin-border {
+    color: #2867B2;
+    border: 1px solid #2867B2;
+    background: #fff; }
+    .genric-btn.linkedin-border:hover {
+      color: #fff;
+      background: #2867B2;
+      border: 1px solid transparent; }
+  .genric-btn.facebook {
+    color: #fff;
+    background: #4267B2;
+    border: 1px solid transparent; }
+    .genric-btn.facebook:hover {
+      color: #4267B2;
+      border: 1px solid #4267B2;
+      background: #fff; }
+  .genric-btn.facebook-border {
+    color: #4267B2;
+    border: 1px solid #4267B2;
+    background: #fff; }
+    .genric-btn.facebook-border:hover {
+      color: #fff;
+      background: #4267B2;
+      border: 1px solid transparent; }
+  .genric-btn.instagram {
+    color: #fff;
+    background: #C13584;
+    border: 1px solid transparent; }
+    .genric-btn.instagram:hover {
+      color: #E1306C;
+      border: 1px solid #C13584;
+      background: #fff; }
+  .genric-btn.instagram-border {
+    color: #E1306C;
+    border: 1px solid #C13584;
+    background: #fff; }
+    .genric-btn.instagram-border:hover {
+      color: #fff;
+      background: #C13584;
+      border: 1px solid transparent; }
+  .genric-btn.snapchat {
+    color: #fff;
+    background: #FFFC00;
+    border: 1px solid transparent; }
+    .genric-btn.snapchat:hover {
+      color: #FFFC00;
+      border: 1px solid #FFFC00;
+      background: #fff; }
+  .genric-btn.snapchat-border {
+    color: #FFFC00;
+    border: 1px solid #FFFC00;
+    background: #fff; }
+    .genric-btn.snapchat-border:hover {
+      color: #fff;
+      background: #FFFC00;
       border: 1px solid transparent; }
   .genric-btn.success {
     color: #fff;
