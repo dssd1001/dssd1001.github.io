@@ -736,6 +736,22 @@ h1, h2, h3, h4, h5, h6 {
       color: #fff;
       background: #2867B2;
       border: 1px solid transparent; }
+  .genric-btn.twitter {
+    color: #fff;
+    background: #1da1f2;
+    border: 1px solid transparent; }
+    .genric-btn.twitter:hover {
+      color: #1da1f2;
+      border: 1px solid #1da1f2;
+      background: #fff; }
+  .genric-btn.twitter-border {
+    color: #1da1f2;
+    border: 1px solid #1da1f2;
+    background: #fff; }
+    .genric-btn.twitter-border:hover {
+      color: #fff;
+      background: #1da1f2;
+      border: 1px solid transparent; }
   .genric-btn.facebook {
     color: #fff;
     background: #4267B2;
